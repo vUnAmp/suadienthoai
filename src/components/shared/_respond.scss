@@ -1,0 +1,29 @@
+.boxFull {
+  width: 100%;
+}
+.box {
+  width: 100%;
+  max-width: $max-width;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $box-padding;
+  padding-right: $box-padding;
+}
+.boxFlex {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  // justify-content: center;
+}
+
+@mixin respond($x) {
+  @if $x == md {
+    @media (min-width: 768px) {
+      @content;
+    }
+  } @else if $x == lg {
+    @media (min-width: 992px) {
+      @content;
+    }
+  }
+}
