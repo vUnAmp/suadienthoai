@@ -1,26 +1,25 @@
 import React, { useState, useEffect } from "react"
 import { Link } from "gatsby"
+
+import HomeIcon from "../../Icons/Home"
+import AboutIcon from "../../Icons/About"
+import ServiceIcon from "../../Icons/Service"
+import ContactIcon from "../../Icons/Contact"
+import TerminIcon from "../../Icons/Termin"
 const Header = () => {
   const [toggle, setToggle] = useState(true)
   const toggleMenu = e => {
-    // e.preventDefault()
-    // const x = document.getElementsByClassName("button-menu__icon")
+    document.body.style.overflow = toggle ? "hidden" : null
     setToggle(!toggle)
   }
-  //   useEffect(() => {
-  //     if (!toggle) {
-  //       document.getElementById("burger").style.maxHeight = "600px"
-  //     } else {
-  //       document.getElementById("burger").style.maxHeight = "0px"
-  //     }
-  //   }, [toggle])
+
   return (
     <header className="boxFull">
       <div className="box boxFlex">
         <div className="header-logo">
           <Link to="/">Logo</Link>
         </div>
-        <label
+        <div
           htmlFor="burger"
           role="button"
           tabIndex={0}
@@ -37,34 +36,54 @@ const Header = () => {
             <span></span>
             <span></span>
           </div>
-        </label>
-
-        <input type="checkbox" name="burger" id="burger" />
+        </div>
         <div
-          //   className={`${
-          //     toggle ? "header-navlink" : "header-navlink header-navlink__active"
-          //   }`}
-
-          className="header-navlink"
+          id="burger"
+          className={`${
+            toggle ? "header-navlink" : "header-navlink header-navlink__active"
+          }`}
         >
           <ul className="header-navlink__items boxFlex">
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/">
+                <span>
+                  <HomeIcon width="20px" height="20px" />
+                </span>
+                <span>Home</span>
+              </Link>
             </li>
             <li>
-              <Link to="/">About</Link>
+              <Link to="/">
+                <span>
+                  <AboutIcon width="20px" height="20px" />
+                </span>
+                <span>About</span>
+              </Link>
             </li>
             <li>
-              <Link to="/">Services</Link>
+              <Link to="/">
+                <span>
+                  <ServiceIcon width="20px" height="20px" />
+                </span>
+                <span>Services</span>
+              </Link>
+            </li>
+
+            <li>
+              <Link to="/">
+                <span>
+                  <ContactIcon width="20px" height="20px" />
+                </span>
+                <span>Contact</span>
+              </Link>
             </li>
             <li>
-              <Link to="/">Our Team</Link>
-            </li>
-            <li>
-              <Link to="/">Contact</Link>
-            </li>
-            <li>
-              <Link to="/">Termin</Link>
+              <Link to="/">
+                <span>
+                  <TerminIcon width="20px" height="20px" />
+                </span>
+                <span>Termin</span>
+              </Link>
             </li>
           </ul>
         </div>

@@ -1,6 +1,6 @@
 header.boxFull {
   position: relative;
-  padding: 1.5rem 0;
+  padding: 1rem 0;
 
   vertical-align: baseline;
   background: transparent;
@@ -11,13 +11,14 @@ header.boxFull {
       display: none;
     }
     margin-left: auto;
-    padding: 1rem;
+
     cursor: pointer;
     .button-menu {
       position: relative;
       display: block;
       width: 60px;
       height: 25px;
+      right: -20px;
 
       span {
         display: block;
@@ -69,34 +70,83 @@ header.boxFull {
         }
       }
     }
+    &:focus {
+      outline: none;
+    }
   }
 
   .header-navlink {
     width: 100%;
-    max-height: 0;
+    max-width: 100%;
+    padding: 1rem;
+    transform: translateX(100%);
+    opacity: 0.8;
+    position: absolute;
+    z-index: 2020;
+    top: 65px;
+    left: 0;
+    height: 100vh;
     overflow: hidden;
-    margin-left: auto;
+    background-color: #f8f5f2;
+
+    // background-image: linear-gradient(
+    //   110deg,
+    //   rgba(255, 255, 255, 0) 64%,
+    //   rgba(37, 57, 147, 0.08) 64%
+    // );
+
     ul {
       flex-direction: column;
+      margin-top: 3rem;
+      li {
+        width: 100%;
+        background: #fff;
+        border-radius: 2px;
+        margin-bottom: 2px;
+        border-bottom: 1px solid #cecece;
+        &:hover {
+          background: darken(#fff, 6%);
+        }
+        &:hover a {
+          color: #985009;
+          fill: #985009;
+        }
+        a {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          span:nth-child(1) {
+            margin-right: 1rem;
+          }
+        }
+      }
     }
-    transition: max-height $animation-time linear;
-
-    @include respond(md) {
-      display: block;
-      max-height: unset;
-    }
+    transition: all $animation-time ease-in-out;
 
     &__items {
+      align-items: flex-start;
       a {
         font-weight: 400;
         color: $header-link;
+        padding: 1rem;
       }
     }
-    // &__active {
-    //   max-height: 300px;
-    // }
-  }
-  #burger:checked ~ .header-navlink {
-    max-height: 400px;
+    @include respond(md) {
+      display: block;
+      max-height: -webkit-fit-content;
+      max-height: -moz-fit-content;
+      max-height: fit-content !important;
+      width: -webkit-fit-content;
+      width: -moz-fit-content;
+      width: fit-content;
+      margin-left: auto;
+      ul {
+        flex-direction: row;
+      }
+    }
+    &__active {
+      transform: translateX(0);
+      opacity: 1;
+    }
   }
 }
