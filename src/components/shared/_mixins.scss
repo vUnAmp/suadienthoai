@@ -1,0 +1,15 @@
+@mixin btn {
+  padding: 13px 2rem;
+  color: $btn-color;
+  border: 2px solid $btn-color;
+  span {
+    color: $btn-color;
+    fill: $btn-color;
+  }
+  &:hover {
+    background-color: $btn-color;
+    span {
+      color: white;
+    }
+  }
+}

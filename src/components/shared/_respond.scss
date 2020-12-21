@@ -27,3 +27,24 @@
     }
   }
 }
+
+@for $x from 1 through 12 {
+  .col-#{$x} {
+    max-width: percentage(1/12) * $x;
+  }
+}
+
+@media (min-width: 768px) {
+  @for $x from 1 through 12 {
+    .col-md-#{$x} {
+      max-width: percentage(1/12) * $x;
+    }
+  }
+}
+@media (min-width: 992px) {
+  @for $x from 1 through 12 {
+    .col-lg-#{$x} {
+      max-width: percentage(1/12) * $x;
+    }
+  }
+} ;

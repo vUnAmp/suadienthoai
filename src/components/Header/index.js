@@ -17,7 +17,7 @@ const Header = () => {
     <header className="boxFull">
       <div className="box boxFlex">
         <div className="header-logo">
-          <Link to="/">Logo</Link>
+          <Link to="/">Home</Link>
         </div>
         <div
           htmlFor="burger"

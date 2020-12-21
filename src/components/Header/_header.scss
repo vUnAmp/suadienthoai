@@ -1,10 +1,13 @@
 header.boxFull {
-  position: relative;
+  position: absolute;
+  z-index: 2020;
   padding: 1rem 0;
 
   vertical-align: baseline;
   background: transparent;
-
+  // @include respond(lg) {
+  //   background-image: linear-gradient(105deg, #f8f5f2, #fbeaea);
+  // }
   .header-burger-menu {
     display: block;
     @include respond(md) {
@@ -79,8 +82,9 @@ header.boxFull {
     width: 100%;
     max-width: 100%;
     padding: 1rem;
-    transform: translateX(100%);
-    opacity: 0.8;
+    transform: translateX(-100%);
+
+    // display: none;
     position: absolute;
     z-index: 2020;
     top: 65px;
@@ -88,13 +92,6 @@ header.boxFull {
     height: 100vh;
     overflow: hidden;
     background-color: #f8f5f2;
-
-    // background-image: linear-gradient(
-    //   110deg,
-    //   rgba(255, 255, 255, 0) 64%,
-    //   rgba(37, 57, 147, 0.08) 64%
-    // );
-
     ul {
       flex-direction: column;
       margin-top: 3rem;
@@ -117,6 +114,8 @@ header.boxFull {
           align-items: center;
           span:nth-child(1) {
             margin-right: 1rem;
+            color: #985009;
+            fill: #985009;
           }
         }
       }
@@ -133,19 +132,54 @@ header.boxFull {
     }
     @include respond(md) {
       display: block;
-      max-height: -webkit-fit-content;
-      max-height: -moz-fit-content;
-      max-height: fit-content !important;
       width: -webkit-fit-content;
       width: -moz-fit-content;
       width: fit-content;
+      height: unset;
+      position: unset;
+      transform: unset;
       margin-left: auto;
+      margin-right: -1rem;
+      background-color: transparent;
       ul {
         flex-direction: row;
+        margin-top: unset;
+        li {
+          width: -webkit-fit-content;
+          width: -moz-fit-content;
+          width: fit-content;
+          border: unset;
+          background: transparent;
+          margin-bottom: unset;
+          margin-right: 0.5rem;
+          a {
+            // padding: 1rem 0.6rem;
+            span:nth-child(1) {
+              // margin-right: 4px;
+              display: none;
+            }
+          }
+          &:nth-last-child(1) {
+            text-transform: uppercase;
+
+            a {
+              @include btn;
+              span:nth-child(1) {
+                // margin-right: 4px;
+                display: block;
+                svg {
+                  height: 16px;
+                }
+              }
+            }
+          }
+        }
       }
     }
+
     &__active {
       transform: translateX(0);
+      display: block;
       opacity: 1;
     }
   }
