@@ -1,13 +1,20 @@
 header.boxFull {
+  overflow: hidden;
+
   position: absolute;
   z-index: 2020;
   padding: 1rem 0;
 
   vertical-align: baseline;
   background: transparent;
-  // @include respond(lg) {
-  //   background-image: linear-gradient(105deg, #f8f5f2, #fbeaea);
-  // }
+
+  .header-desktopNav {
+    margin-left: auto;
+    display: none;
+    @include respond(md) {
+      display: flex;
+    }
+  }
   .header-burger-menu {
     display: block;
     @include respond(md) {
@@ -82,13 +89,11 @@ header.boxFull {
     width: 100%;
     max-width: 100%;
     padding: 1rem;
-    transform: translateX(-100%);
-
-    // display: none;
-    position: absolute;
+    position: fixed;
     z-index: 2020;
-    top: 65px;
-    left: 0;
+    top: 80px;
+    right: -100%;
+    opacity: 0;
     height: 100vh;
     overflow: hidden;
     background-color: #f8f5f2;
@@ -121,66 +126,41 @@ header.boxFull {
       }
     }
     transition: all $animation-time ease-in-out;
-
+    @include respond(md) {
+      display: none;
+    }
+    &__active {
+      right: 0;
+      opacity: 1;
+    }
     &__items {
       align-items: flex-start;
       a {
         font-weight: 400;
-        color: $header-link;
+        color: #985009;
         padding: 1rem;
-      }
-    }
-    @include respond(md) {
-      display: block;
-      width: -webkit-fit-content;
-      width: -moz-fit-content;
-      width: fit-content;
-      height: unset;
-      position: unset;
-      transform: unset;
-      margin-left: auto;
-      margin-right: -1rem;
-      background-color: transparent;
-      ul {
-        flex-direction: row;
-        margin-top: unset;
-        li {
-          width: -webkit-fit-content;
-          width: -moz-fit-content;
-          width: fit-content;
-          border: unset;
-          background: transparent;
-          margin-bottom: unset;
-          margin-right: 0.5rem;
-          a {
-            // padding: 1rem 0.6rem;
-            span:nth-child(1) {
-              // margin-right: 4px;
-              display: none;
-            }
-          }
-          &:nth-last-child(1) {
-            text-transform: uppercase;
-
-            a {
-              @include btn;
-              span:nth-child(1) {
-                // margin-right: 4px;
-                display: block;
-                svg {
-                  height: 16px;
-                }
-              }
-            }
-          }
+        @include respond(md) {
+          color: $white-color;
         }
       }
     }
+  }
+}
 
-    &__active {
-      transform: translateX(0);
-      display: block;
-      opacity: 1;
-    }
+@-webkit-keyframes fadeIn {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
   }
 }

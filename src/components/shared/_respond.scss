@@ -2,6 +2,7 @@
   width: 100%;
 }
 .box {
+  display: flex;
   width: 100%;
   max-width: $max-width;
   margin-left: auto;
@@ -30,6 +31,7 @@
 
 @for $x from 1 through 12 {
   .col-#{$x} {
+    width: 100%;
     max-width: percentage(1/12) * $x;
   }
 }
@@ -37,6 +39,7 @@
 @media (min-width: 768px) {
   @for $x from 1 through 12 {
     .col-md-#{$x} {
+      width: 100%;
       max-width: percentage(1/12) * $x;
     }
   }
@@ -44,6 +47,7 @@
 @media (min-width: 992px) {
   @for $x from 1 through 12 {
     .col-lg-#{$x} {
+      width: 100%;
       max-width: percentage(1/12) * $x;
     }
   }

@@ -1,8 +1,10 @@
 @import "./shared/variables";
 @import "./shared/reset";
+@import "./shared/respond";
 @import "./shared/mixins";
 @import "./shared/button";
-@import "./shared/respond";
+
+@import "./Termin/termin";
 
 @import "./Header/header";
 @import "./Intro/intro";

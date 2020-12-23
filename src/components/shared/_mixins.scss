@@ -13,3 +13,14 @@
     }
   }
 }
+
+@mixin h1-title {
+  font-size: 2rem;
+  color: $black-color;
+  font-weight: 600;
+
+  @include respond(lg) {
+    font-size: 3rem;
+    font-weight: 700;
+  }
+}
