@@ -6,18 +6,13 @@ import ServiceIcon from "../../../Icons/Service"
 import ContactIcon from "../../../Icons/Contact"
 import TerminIcon from "../../../Icons/Termin"
 
-const Menubar = ({ toggle }) => {
-  const [isOpen, setIsOpen] = useState(toggle)
-  useEffect(() => {
-    setIsOpen(!isOpen)
-  }, [toggle])
+const Menubar = ({ isMount }) => {
   return (
     <div
       id="burger"
       className={`${
-        toggle ? "header-navlink" : "header-navlink header-navlink__active"
+        isMount ? "header-navlink  header-navlink__active" : "header-navlink"
       }`}
-      className="header-navlink"
     >
       <ul className="header-navlink__items boxFlex">
         <li>

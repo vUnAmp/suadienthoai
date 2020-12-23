@@ -40,6 +40,10 @@
             @include h1-title;
             color: $white-color;
             position: relative;
+            text-align: center;
+            @include respond(md) {
+              text-align: start;
+            }
           }
           p {
             color: $white-color;
@@ -47,7 +51,12 @@
           }
           .cta-btn {
             margin-top: 3rem;
+            display: flex;
+            justify-content: center;
 
+            @include respond(md) {
+              display: block;
+            }
             button:nth-child(1) {
               margin-right: 1.2rem;
             }

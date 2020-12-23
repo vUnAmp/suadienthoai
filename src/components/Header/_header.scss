@@ -97,6 +97,7 @@ header.boxFull {
     height: 100vh;
     overflow: hidden;
     background-color: #f8f5f2;
+
     ul {
       flex-direction: column;
       margin-top: 3rem;
@@ -125,6 +126,8 @@ header.boxFull {
         }
       }
     }
+    -webkit-animation: fadeIn $animation-time ease-in-out;
+    animation: fadeIn $animation-time ease-in-out;
     transition: all $animation-time ease-in-out;
     @include respond(md) {
       display: none;
