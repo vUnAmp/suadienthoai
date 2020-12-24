@@ -1,12 +1,12 @@
 header.boxFull {
-  overflow: hidden;
+  // overflow: hidden;
 
   position: absolute;
   z-index: 2020;
   padding: 1rem 0;
 
   vertical-align: baseline;
-  background: transparent;
+  // background: transparent;
 
   .header-desktopNav {
     margin-left: auto;
@@ -92,10 +92,11 @@ header.boxFull {
     position: fixed;
     z-index: 2020;
     top: 80px;
+    bottom: 0;
     right: -100%;
-    opacity: 0;
-    height: 100vh;
-    overflow: hidden;
+    // opacity: 0;
+    // height: 100vh;
+    // overflow: hidden;
     background-color: #f8f5f2;
 
     ul {
@@ -115,6 +116,7 @@ header.boxFull {
           fill: #985009;
         }
         a {
+          // background-color: black;
           width: 100%;
           display: flex;
           align-items: center;

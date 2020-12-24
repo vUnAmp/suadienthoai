@@ -1,6 +1,5 @@
 .termin {
-  max-width: 500px;
-  position: relative;
+  // max-width: 500px;
   margin: 0 auto;
   width: 100%;
   display: flex;
@@ -47,19 +46,13 @@
     margin-top: 1rem;
   }
 
-  .select {
-    width: 95%;
-  }
   .form-email,
   .form-name,
   .form-time,
-  .form-number,
-  .select {
+  .form-number {
     margin: 10px 0;
     height: calc(40px);
     width: 95%;
-
-    // border: 1px solid #ffaa19;
     border-radius: 3px;
   }
   input,
@@ -68,22 +61,4 @@
     padding-left: 10px;
     background-color: whitesmoke;
   }
-}
-.termin::after,
-.termin::before {
-  content: "";
-  opacity: 0.7;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  position: absolute;
-  z-index: -3;
-
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-.termin::before {
-  background: rgba(0, 0, 0, 1);
-  z-index: -1;
 }
