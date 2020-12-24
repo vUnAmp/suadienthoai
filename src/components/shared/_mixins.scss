@@ -15,6 +15,7 @@
 }
 
 @mixin h1-title {
+  text-align: center;
   font-size: 2rem;
   color: $black-color;
   font-weight: 600;
@@ -22,5 +23,24 @@
   @include respond(lg) {
     font-size: 3rem;
     font-weight: 700;
+  }
+}
+@mixin h3-title {
+  font-size: 1.4rem;
+  color: $black-color;
+  font-weight: 600;
+
+  @include respond(md) {
+    font-size: 1.8rem;
+  }
+}
+
+@mixin small-text {
+  color: lighten($header-link, 10%);
+  text-align: center;
+  line-height: 1.5;
+  @include respond(md) {
+    text-align: left;
+    font-size: 1.2rem;
   }
 }

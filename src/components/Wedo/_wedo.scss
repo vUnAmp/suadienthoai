@@ -1,0 +1,45 @@
+.wedo {
+  padding-bottom: 2rem;
+  background-image: linear-gradient(
+    110deg,
+    darken($title-color, 4%) 33%,
+    lighten($title-color, 5%) 33%,
+    lighten($title-color, 5%) 66%,
+    lighten($title-color, 16%) 66%
+  );
+  &-title {
+    @include h3-title;
+    text-align: center;
+    padding: 1rem 0;
+    color: #ffde00;
+  }
+  &-content {
+    display: flex;
+    flex-wrap: wrap;
+    .wedo-problem {
+      padding-bottom: 2rem;
+      width: -webkit-fit-content;
+      width: -moz-fit-content;
+      width: fit-content;
+      margin: 0 auto;
+      ol {
+        list-style: none;
+        padding: 0;
+        li {
+          @include small-text;
+          line-height: 1.8;
+          text-align: left;
+          position: relative;
+          color: $white-color;
+          &::first-letter {
+            margin-right: 8px;
+          }
+        }
+      }
+    }
+    .wedo-pic {
+      color: $white-color;
+      fill: darken($white-color, 2%);
+    }
+  }
+}
