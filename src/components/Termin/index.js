@@ -3,7 +3,7 @@ import { navigate } from "gatsby"
 
 import emailjs, { init } from "emailjs-com"
 
-import SEO from "../SEO"
+// import SEO from "../SEO"
 
 init("user_pjN71AkA6f8IUCEG6ohxc")
 const d = new Date()
@@ -53,7 +53,7 @@ const Termin = () => {
   }
   return (
     <>
-      <SEO title="Termin buchen" />
+      {/* <SEO title="Termin buchen" /> */}
       <form
         className="termin"
         onSubmit={e => {
