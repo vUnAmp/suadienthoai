@@ -3,6 +3,8 @@ import { Link } from "gatsby"
 import "./layout.scss"
 import Header from "./Header"
 
+import Footer from "./Footer"
+
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
@@ -27,11 +29,7 @@ const Layout = ({ location, title, children }) => {
       <Header />
       {/* <header className="global-header">{header}</header> */}
       <main>{children}</main>
-      <footer>
-        © {new Date().getFullYear()}, Built with
-        {` `}
-        <a href="">PhoneABC Gmbh</a>
-      </footer>
+      <Footer />
     </div>
   )
 }
