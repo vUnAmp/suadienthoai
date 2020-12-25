@@ -26,7 +26,7 @@ const Header = () => {
     }
   `)
   const logo = data?.logo?.childImageSharp?.fixed
-  console.log(isRender)
+
   return (
     <header className="boxFull">
       <div className="box boxFlex">

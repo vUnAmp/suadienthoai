@@ -5,7 +5,7 @@ const Intro = () => {
   return (
     <div className="boxFull intro">
       <div className="boxFull intro-wrap">
-        <div className="boxFlex intro-content">
+        <div className="box boxFlex intro-content">
           <div className="col-12 col-md-7 col-lg-8 intro-content__text">
             <div className="intro-content__text-inner">
               <h1 className="h1-title">Handy und Tablet Werkstatt</h1>

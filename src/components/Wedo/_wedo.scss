@@ -40,6 +40,21 @@
     .wedo-pic {
       color: $white-color;
       fill: darken($white-color, 2%);
+      position: relative;
+      &::after {
+        content: "repaiphone24.de";
+        position: absolute;
+        color: #ffde00;
+        width: -webkit-fit-content;
+        width: -moz-fit-content;
+        width: fit-content;
+        top: 4vw;
+        right: 4vw;
+        @include respond(md) {
+          top: 2vw;
+          right: 2vw;
+        }
+      }
     }
   }
 }

@@ -54,6 +54,9 @@
     height: calc(40px);
     width: 95%;
     border-radius: 3px;
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
   }
   input,
   textarea {

@@ -7,8 +7,8 @@ import emailjs, { init } from "emailjs-com"
 
 init("user_pjN71AkA6f8IUCEG6ohxc")
 const d = new Date()
-const month = d.getMonth()
-const day = +d.getDate()
+const month = d.getMonth() + 1
+const day = d.getDate()
 const year = d.getFullYear()
 const fullDate = [year, month, day].join("-")
 
