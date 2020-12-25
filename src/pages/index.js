@@ -6,16 +6,18 @@ import SEO from "../components/seo"
 import Intro from "../components/Intro"
 import Services from "../components/Services"
 import Wedo from "../components/Wedo"
+import Contact from "../components/Contact"
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
 
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title="All posts" />
+      <SEO title="Repairphone24.de" />
       <Intro />
       <Services />
       <Wedo />
+      <Contact />
     </Layout>
   )
 }

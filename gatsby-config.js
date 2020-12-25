@@ -1,14 +1,14 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
+    title: `Handy repair in DongXuan`,
     author: {
-      name: `Kyle Mathews`,
+      name: `stephan`,
       summary: `who lives and works in San Francisco building useful things.`,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.app/`,
+    description: `We building a small technik company.`,
+    siteUrl: `https://repairphone24.de/`,
     social: {
-      twitter: `kylemathews`,
+      facebook: `stephan`,
     },
   },
   plugins: [
@@ -61,13 +61,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: `Handy repair in DongXuan`,
+        short_name: `PhoneABC Gmbh`,
         start_url: `/`,
         background_color: `#ffffff`,
-        theme_color: `#663399`,
+        theme_color: `#253993`,
         display: `minimal-ui`,
-        icon: `content/assets/gatsby-icon.png`,
+        icon: `content/assets/suachuaonline24.jpg`,
       },
     },
     `gatsby-plugin-react-helmet`,

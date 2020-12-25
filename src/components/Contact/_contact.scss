@@ -1,0 +1,32 @@
+.contact {
+  background-image: linear-gradient(
+    110deg,
+    $white-color,
+    lighten($white-color, 6%) 66%
+  );
+  padding: 3rem 0;
+  .col-12 {
+    // display: flex;
+    padding: 1rem 0;
+    @include respond(lg) {
+      padding: 1rem 52px;
+    }
+
+    span.contact-icon {
+      display: flex;
+      align-items: center;
+      fill: #bf3600;
+      color: #bf3600;
+      margin-bottom: 1rem;
+      .contact-title {
+        @include h3-title;
+        margin-left: 0.6rem;
+        color: #bf3600;
+      }
+    }
+    span.contact-text {
+      color: lighten($header-link, 20%);
+      line-height: 1.6;
+    }
+  }
+}
