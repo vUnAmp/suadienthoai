@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -14,10 +14,11 @@ const BlogIndex = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="Repairphone24.de" />
-      <Intro />
-      <Services />
-      <Wedo />
-      <Contact />
+      {/* <Intro /> */}
+      {/* <Services /> */}
+      {/* <Wedo /> */}
+      {/* <Contact /> */}
+      <Link to="/store"> Go to store</Link>
     </Layout>
   )
 }

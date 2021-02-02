@@ -8,8 +8,9 @@
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
   "dependencies": {
+    "@stripe/stripe-js": "^1.11.0",
     "emailjs-com": "^2.6.4",
-    "gatsby": "^2.29.2",
+    "gatsby": "^2.32.0",
     "gatsby-image": "^2.8.0",
     "gatsby-plugin-feed": "^2.10.0",
     "gatsby-plugin-google-analytics": "^2.8.0",
@@ -24,6 +25,7 @@
     "gatsby-remark-responsive-iframe": "^2.8.0",
     "gatsby-remark-smartypants": "^2.7.0",
     "gatsby-source-filesystem": "^2.8.1",
+    "gatsby-source-stripe": "^3.2.1",
     "gatsby-transformer-remark": "^2.13.1",
     "gatsby-transformer-sharp": "^2.9.0",
     "node-sass": "^4.14.1",
@@ -31,7 +33,10 @@
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-helmet": "^5.2.1",
+    "react-hook-form": "^6.15.1",
     "sass": "^1.30.0",
+    "slug": "^4.0.2",
+    "stripe": "^8.132.0",
     "typeface-merriweather": "0.0.72",
     "typeface-montserrat": "0.0.75"
   },

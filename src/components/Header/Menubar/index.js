@@ -24,7 +24,7 @@ const Menubar = ({ isMount }) => {
           </Link>
         </li>
         <li>
-          <Link to="/">
+          <Link to="/about">
             <span>
               <AboutIcon width="20px" height="20px" />
             </span>
@@ -41,7 +41,7 @@ const Menubar = ({ isMount }) => {
         </li>
 
         <li>
-          <Link to="/">
+          <Link to="/contact">
             <span>
               <ContactIcon width="20px" height="20px" />
             </span>
