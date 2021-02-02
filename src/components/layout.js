@@ -25,7 +25,7 @@ const Layout = ({ location, title, children }) => {
   }
 
   return (
-    <div className="boxFull" data-is-root-path={isRootPath}>
+    <div className="wrap-site" data-is-root-path={isRootPath}>
       <Header />
       {/* <header className="global-header">{header}</header> */}
       <main>{children}</main>

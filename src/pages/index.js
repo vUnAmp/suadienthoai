@@ -14,11 +14,10 @@ const BlogIndex = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="Repairphone24.de" />
-      {/* <Intro /> */}
-      {/* <Services /> */}
-      {/* <Wedo /> */}
-      {/* <Contact /> */}
-      <Link to="/store"> Go to store</Link>
+      <Intro />
+      <Services />
+      <Wedo />
+      <Contact />
     </Layout>
   )
 }

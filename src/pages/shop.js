@@ -1,18 +1,27 @@
 import React from "react"
+import Layout from "../components/layout"
+import ListProducts from "../components/Products/ProductList"
 
-const Shop = () => {
-  const handleClick = async () => {
-    const data = await fetch("/.netlify/functions/prices")
-      .then(res => res.json)
-      .catch(err => console.log(err))
+const Shop = ({ data, location }) => {
+  const siteTitle = `Unser Online Shop`
+
+  const fetchData = async () => {
+    const data = await fetch("/.netlify/functions/getdata").then(res =>
+      res.json()
+    )
+
     console.log(data)
+    return data
+  }
+  const handleClick = async () => {
+    fetchData()
   }
 
   return (
-    <div>
-      <h1>Hello Stripe Gatsby</h1>
+    <Layout location={location} title={siteTitle}>
+      <ListProducts />
       <button onClick={handleClick}>Click get data</button>
-    </div>
+    </Layout>
   )
 }
 

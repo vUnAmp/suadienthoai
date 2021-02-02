@@ -41,11 +41,11 @@ const Menubar = ({ isMount }) => {
         </li>
 
         <li>
-          <Link to="/contact">
+          <Link to="/shop">
             <span>
               <ContactIcon width="20px" height="20px" />
             </span>
-            <span>Contact</span>
+            <span>Shop</span>
           </Link>
         </li>
         <li>

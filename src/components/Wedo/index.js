@@ -12,19 +12,102 @@ const Wedo = () => {
         <div className="col-12 col-md-6">
           <div className="wedo-problem">
             <ol>
-              <li className="small-text">✅ Display Reparatur</li>
-              <li className="small-text">✅ Fehlerdiagnose</li>
-              <li className="small-text">✅ Kostenvoranschlag</li>
-              <li className="small-text">✅ Wasserschaden Diagnose</li>
-              <li className="small-text">✅ Backcover Reparatur</li>
-              <li className="small-text">✅ Akku Austausch</li>
-              <li className="small-text">✅ Hauptkamera Reparatur</li>
-              <li className="small-text">✅ Kameraglasreparatur</li>
-              <li className="small-text">✅ Powerbutton Reparatur</li>
-              <li className="small-text">✅ Hörmuschel Reparatur</li>
-              <li className="small-text">✅ Ladebuchse Reparatur</li>
-              <li className="small-text">✅ Kopfhörerbuchse Reparatur</li>
-              <li className="small-text">✅ Lautstärkeregler Reparatur</li>
+              <li className="small-text">
+                <span
+                  role="img"
+                  aria-labelledby="repairphone24 handy repair schnell"
+                >
+                  ✅ Display Reparatur{" "}
+                </span>
+              </li>
+              <li className="small-text">
+                <span
+                  role="img"
+                  aria-labelledby="repairphone24 handy repair schnell"
+                >
+                  ✅ Fehlerdiagnose
+                </span>
+              </li>
+              <li className="small-text">
+                <span
+                  role="img"
+                  aria-labelledby="repairphone24 handy repair schnell"
+                >
+                  ✅ Kostenvoranschlag
+                </span>
+              </li>
+              <li className="small-text">
+                <span
+                  role="img"
+                  aria-labelledby="repairphone24 handy repair schnell"
+                >
+                  ✅ Wasserschaden Diagnose
+                </span>
+              </li>
+              <li className="small-text">
+                <span
+                  role="img"
+                  aria-labelledby="repairphone24 handy repair schnell"
+                >
+                  ✅ Backcover Reparatur
+                </span>
+              </li>
+              <li className="small-text">
+                <span
+                  role="img"
+                  aria-labelledby="repairphone24 handy repair schnell"
+                >
+                  ✅ Hauptkamera Reparatur
+                </span>
+              </li>
+              <li className="small-text">
+                <span
+                  role="img"
+                  aria-labelledby="repairphone24 handy repair schnell"
+                >
+                  ✅ Kameraglasreparatur
+                </span>
+              </li>
+              <li className="small-text">
+                <span
+                  role="img"
+                  aria-labelledby="repairphone24 handy repair schnell"
+                >
+                  ✅ Powerbutton Reparatur
+                </span>
+              </li>
+              <li className="small-text">
+                <span
+                  role="img"
+                  aria-labelledby="repairphone24 handy repair schnell"
+                >
+                  ✅ Hörmuschel Reparatur
+                </span>
+              </li>
+              <li className="small-text">
+                <span
+                  role="img"
+                  aria-labelledby="repairphone24 handy repair schnell"
+                >
+                  ✅ Ladebuchse Reparatur
+                </span>
+              </li>
+              <li className="small-text">
+                <span
+                  role="img"
+                  aria-labelledby="repairphone24 handy repair schnell"
+                >
+                  ✅ Kopfhörerbuchse Reparatur
+                </span>
+              </li>
+              <li className="small-text">
+                <span
+                  role="img"
+                  aria-labelledby="repairphone24 handy repair schnell"
+                >
+                  ✅ Lautstärkeregler Reparatur
+                </span>
+              </li>
             </ol>
           </div>
         </div>

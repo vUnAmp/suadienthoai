@@ -2,6 +2,7 @@ import React, { useState } from "react"
 
 import { useStaticQuery, graphql, Link } from "gatsby"
 import Image from "gatsby-image"
+import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined"
 
 import Menubar from "./Menubar"
 
@@ -30,6 +31,25 @@ const Header = () => {
   return (
     <header className="boxFull">
       <div className="box boxFlex">
+        <div
+          htmlFor="burger"
+          role="button"
+          tabIndex={0}
+          onClick={toggleMenu}
+          onKeyDown={toggleMenu}
+          className="header-burger-menu"
+        >
+          <div
+            className={`${
+              !isMount ? "button-menu" : "button-menu button-menu__active"
+            }`}
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+
         <div className="header-logo">
           <Link to="/">
             <Image
@@ -65,31 +85,16 @@ const Header = () => {
               </Link>
             </li>
             <li>
-              <Link to="/">
-                <span>Termin</span>
+              <Link to="/shop">
+                <span>Shop</span>
               </Link>
             </li>
           </ul>
         </div>
-        <div
-          htmlFor="burger"
-          role="button"
-          tabIndex={0}
-          onClick={toggleMenu}
-          onKeyDown={toggleMenu}
-          className="header-burger-menu"
-        >
-          <div
-            className={`${
-              !isMount ? "button-menu" : "button-menu button-menu__active"
-            }`}
-          >
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-        </div>
         {isRender && <Menubar isMount={isMount} />}
+        <div className="shop-cart">
+          <ShoppingCartOutlinedIcon />
+        </div>
       </div>
     </header>
   )
