@@ -13,19 +13,30 @@ import StarIcon from "@material-ui/icons/Star"
 import useGatsbyStripeData from "../components/hooks/useGatsbyStripeData"
 import RelateProduct from "../components/Products/RelateProduct"
 
-// import StoreLayout from "../components/Layout/storeLayout"
+// React Slick Carousel
+import Slider from "react-slick"
+import "slick-carousel/slick/slick.css"
+import "slick-carousel/slick/slick-theme.css"
 
 const ItemTemplate = ({ pageContext: { id, slug }, location }) => {
   // const data = useStaticQuery(GatsbyStripeData)
   // console.log(data)
   const siteTitle = { slug }
   const data = useGatsbyStripeData()
-
+  console.log(data)
   const product = data.find(item => item.node.product.id === id)
   const price = (product.node.unit_amount / 100).toFixed(2)
 
   const addToCart = () => {
     console.log("adding to cart")
+  }
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: true,
   }
   return (
     // <StoreLayout>
@@ -39,10 +50,15 @@ const ItemTemplate = ({ pageContext: { id, slug }, location }) => {
         <Grid container spacing={3}>
           <Grid item xs={12} sm={6}>
             <div className="product-details__image">
-              <Img
+              <Slider {...settings}>
+                {product.node.product.localFiles.map(image => (
+                  <Img fluid={image.childImageSharp.fluid} />
+                ))}
+              </Slider>
+              {/* <Img
                 fluid={product.node.product.localFiles[0].childImageSharp.fluid}
                 alt=""
-              />
+              /> */}
             </div>
           </Grid>
           <Grid item xs={12} sm={6}>

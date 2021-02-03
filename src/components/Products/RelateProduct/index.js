@@ -83,7 +83,6 @@ const RelateProduct = ({ data }) => {
     <div className={classes.relatedWrap}>
       <p className={classes.title}>Das könnte dir auch gefallen</p>
       <Slider {...settings}>
-        {/* <Grid container className={classes.root} spacing={5}> */}
         {newData.map((item, index) => {
           return (
             <Grid
@@ -95,7 +94,7 @@ const RelateProduct = ({ data }) => {
               {item.map((product, i) => {
                 const price = (product.node.unit_amount / 100).toFixed(2)
                 return (
-                  <Grid item xs={12} md={2} key={(product, i)}>
+                  <Grid item xs={2} key={(product, i)}>
                     <Card className={classes.maxWidth}>
                       <Link
                         className={classes.link}
@@ -108,23 +107,8 @@ const RelateProduct = ({ data }) => {
                         }
                         alt=""
                       />
-                      <p>{product.node.fields.name}</p>
-                      {/* <CardHeader
-                        title={product.node.fields.name}
-                        /////   Overriden CSS /////
-                        classes={{
-                          title: classes.headerTitle,
-                        }}
-                        /////   Overriden CSS /////
-                      /> */}
-
-                      {/* <CardContent style={{}}>
-                    <p style={{ color: "#00000073", marginTop: "-14px" }}>
-                      {product.node.product.description}
-                    </p>
-
-                    <p style={{ fontWeight: 700 }}> €{price} </p>
-                  </CardContent> */}
+                      <div className="subtitle">{product.node.fields.name}</div>
+                      <p style={{ fontWeight: 600 }}> €{price} </p>
                     </Card>
                   </Grid>
                 )
