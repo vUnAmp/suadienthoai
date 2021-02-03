@@ -1,0 +1,37 @@
+.product-details {
+  padding-top: 100px;
+  .btn-add {
+    background-color: #3498ca;
+    color: #fff;
+    border: none;
+    margin-top: 1rem;
+    &:hover {
+      background-color: darken(#3498ca, 10%);
+    }
+  }
+  .product_details__vote {
+    svg {
+      fill: rgb(254, 198, 0);
+    }
+  }
+  .product-details__image {
+    @include respond(md) {
+      padding: 10px 40px;
+    }
+  }
+  .product-details__info {
+    width: 100%;
+    .title {
+      display: inline-block;
+      width: 78px;
+      margin: 8px;
+      color: #333;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .des {
+      color: lighten(#333, 10%);
+      font-size: 14px;
+    }
+  }
+}

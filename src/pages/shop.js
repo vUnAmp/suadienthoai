@@ -6,7 +6,8 @@ import useGatsbyStripeData from "../components/hooks/useGatsbyStripeData"
 const Shop = ({ data, location }) => {
   const siteTitle = `Unser Online Shop`
   // const data1 = useGatsbyStripeData()
-  // console.log(data1)
+  console.log(location)
+
   const fetchData = async () => {
     const data = await fetch("/.netlify/functions/getdata").then(res =>
       res.json()

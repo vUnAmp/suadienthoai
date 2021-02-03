@@ -65,28 +65,28 @@ const Header = () => {
           <ul className="header-navlink__items boxFlex">
             <li>
               <Link to="/">
-                <span>Home</span>
+                <span className="header-link__item">Home</span>
               </Link>
             </li>
             <li>
               <Link to="/about">
-                <span>About</span>
+                <span className="header-link__item">About</span>
               </Link>
             </li>
             <li>
               <Link to="/sewrvce">
-                <span>Services</span>
+                <span className="header-link__item">Services</span>
               </Link>
             </li>
 
             <li>
               <Link to="/contat">
-                <span>Contact</span>
+                <span className="header-link__item">Contact</span>
               </Link>
             </li>
             <li>
               <Link to="/shop">
-                <span>Shop</span>
+                <span className="header-link__item">Shop</span>
               </Link>
             </li>
           </ul>

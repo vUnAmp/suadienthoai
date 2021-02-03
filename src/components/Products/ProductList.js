@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => ({
     flexGrow: 1,
     maxWidth: "72.5rem",
     margin: "0 auto",
-    // paddingTop: 100,
+    paddingTop: 100,
   },
   media: {
     height: 0,
@@ -58,7 +58,7 @@ const ListProducts = () => {
   //   })
 
   return (
-    <Grid container className={classes.root} spacing={2}>
+    <Grid container className={classes.root} spacing={5}>
       {data.map((product, i) => {
         const price = (product.node.unit_amount / 100).toFixed(2)
         return (

@@ -11,9 +11,10 @@
 @import "./Wedo/wedo";
 @import "./Contact/contact";
 @import "./Footer/footer";
+@import "../templates/productDetails.scss";
 
 .wrap-site {
   main {
-    padding-top: 100px;
+    // padding-top: 100px;
   }
 }
