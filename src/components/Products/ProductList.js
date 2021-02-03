@@ -9,6 +9,10 @@ import CardHeader from "@material-ui/core/CardHeader"
 import CardContent from "@material-ui/core/CardContent"
 
 import { useSelector, useDispatch } from "react-redux"
+
+// Query data
+import useGatsbyStripeData from "../hooks/useGatsbyStripeData"
+
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
@@ -42,6 +46,7 @@ const ListProducts = () => {
   const classes = useStyles()
 
   const [count, setCount] = useState(2)
+  const data = useGatsbyStripeData()
   //   useEffect(() => {
   //     document.addEventListener("scroll", () => {
   //       console.log("hello")
@@ -51,83 +56,43 @@ const ListProducts = () => {
   //       document.removeEventListener("scroll")
   //     }
   //   })
+  const x = [1, 2, 3, 4]
   return (
-    <StaticQuery
-      query={graphql`
-        query MyQuery {
-          allStripePrice {
-            edges {
-              node {
-                unit_amount
-                id
-                currency
-                fields {
-                  name
-                  slug
-                }
-                product {
-                  id
-                  description
-                  localFiles {
-                    childImageSharp {
-                      fluid(maxWidth: 460, quality: 100) {
-                        ...GatsbyImageSharpFluid_withWebp_tracedSVG
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      `}
-      render={query => {
-        console.log(query)
-        const data = query.allStripePrice.edges
-        // let data1 = data.slice(0, count)
-        console.log(data)
-
+    <Grid container className={classes.root} spacing={2}>
+      {data.map((product, i) => {
+        const price = (product.node.unit_amount / 100).toFixed(2)
         return (
-          <Grid container className={classes.root} spacing={2}>
-            {data.map((product, i) => {
-              const price = (product.node.unit_amount / 100).toFixed(2)
-              return (
-                <Grid item xs={12} md={4} key={(product, i)}>
-                  <Card className={classes.maxWidth}>
-                    <Link
-                      className={classes.link}
-                      to={`/product/${product.node.fields.slug}`}
-                    ></Link>
-                    <Img
-                      fluid={
-                        product.node.product.localFiles[0].childImageSharp.fluid
-                      }
-                      alt=""
-                    />
-                    <CardHeader
-                      title={product.node.fields.name}
-                      /////   Overriden CSS /////
-                      classes={{
-                        title: classes.headerTitle,
-                      }}
-                      /////   Overriden CSS /////
-                    />
+          <Grid item xs={12} md={4} key={(product, i)}>
+            <Card className={classes.maxWidth}>
+              <Link
+                className={classes.link}
+                to={`/product/${product.node.fields.slug}`}
+              ></Link>
+              {/* <Img
+                fluid={product.node.product.localFiles[0].childImageSharp.fluid}
+                alt=""
+              /> */}
+              <CardHeader
+                title={product.node.fields.name}
+                /////   Overriden CSS /////
+                classes={{
+                  title: classes.headerTitle,
+                }}
+                /////   Overriden CSS /////
+              />
 
-                    <CardContent style={{}}>
-                      <p style={{ color: "#00000073", marginTop: "-14px" }}>
-                        {product.node.product.description}
-                      </p>
+              <CardContent style={{}}>
+                <p style={{ color: "#00000073", marginTop: "-14px" }}>
+                  {product.node.product.description}
+                </p>
 
-                      <p style={{ fontWeight: 700 }}> €{price} </p>
-                    </CardContent>
-                  </Card>
-                </Grid>
-              )
-            })}
+                <p style={{ fontWeight: 700 }}> €{price} </p>
+              </CardContent>
+            </Card>
           </Grid>
         )
-      }}
-    />
+      })}
+    </Grid>
   )
 }
 export default ListProducts

@@ -1,24 +1,12 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Image from "gatsby-image"
+import useSiteMeta from "../hooks/useSiteMeta"
 
 const Footer = () => {
-  const data = useStaticQuery(graphql`
-    query Parner {
-      partners: allFile(filter: { relativeDirectory: { regex: "/partner/" } }) {
-        nodes {
-          childImageSharp {
-            fluid(maxWidth: 300, quality: 100) {
-              ...GatsbyImageSharpFluid
-            }
-            id
-          }
-        }
-      }
-    }
-  `)
+  const data = useSiteMeta()
   const picUrl = data.partners.nodes
-  console.log(picUrl)
+  console.log("footer is render ...")
   return (
     <footer className="boxFull footer">
       <div className="box footer-wrap">
