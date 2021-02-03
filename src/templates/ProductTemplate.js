@@ -11,6 +11,7 @@ import StarIcon from "@material-ui/icons/Star"
 
 // import "./productDetails.scss"
 import useGatsbyStripeData from "../components/hooks/useGatsbyStripeData"
+import RelateProduct from "../components/Products/RelateProduct"
 
 // import StoreLayout from "../components/Layout/storeLayout"
 
@@ -19,10 +20,10 @@ const ItemTemplate = ({ pageContext: { id, slug }, location }) => {
   // console.log(data)
   const siteTitle = { slug }
   const data = useGatsbyStripeData()
-  console.log(data, id)
+
   const product = data.find(item => item.node.product.id === id)
   const price = (product.node.unit_amount / 100).toFixed(2)
-  console.log(product)
+
   const addToCart = () => {
     console.log("adding to cart")
   }
@@ -79,6 +80,7 @@ const ItemTemplate = ({ pageContext: { id, slug }, location }) => {
             </div>
           </Grid>
         </Grid>
+        <RelateProduct data={data} />
       </Container>
     </Layout>
   )

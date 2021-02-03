@@ -18,3 +18,13 @@
     // padding-top: 100px;
   }
 }
+
+// OVERRIDEN CSS
+.slick-dots li {
+  margin: 0;
+}
+.slick-prev:before,
+.slick-next:before {
+  color: rgb(68, 63, 67);
+}
+/////////////////

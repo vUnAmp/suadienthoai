@@ -94,6 +94,7 @@ const Header = () => {
         {isRender && <Menubar isMount={isMount} />}
         <div className="shop-cart">
           <ShoppingCartOutlinedIcon />
+          <span className="count">30</span>
         </div>
       </div>
     </header>
