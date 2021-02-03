@@ -56,7 +56,7 @@ const ListProducts = () => {
   //       document.removeEventListener("scroll")
   //     }
   //   })
-  const x = [1, 2, 3, 4]
+
   return (
     <Grid container className={classes.root} spacing={2}>
       {data.map((product, i) => {
@@ -68,10 +68,10 @@ const ListProducts = () => {
                 className={classes.link}
                 to={`/product/${product.node.fields.slug}`}
               ></Link>
-              {/* <Img
+              <Img
                 fluid={product.node.product.localFiles[0].childImageSharp.fluid}
                 alt=""
-              /> */}
+              />
               <CardHeader
                 title={product.node.fields.name}
                 /////   Overriden CSS /////
