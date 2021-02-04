@@ -21,13 +21,6 @@ module.exports = {
         component: require.resolve(`./src/components/Layout/`),
       },
     },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        path: `${__dirname}/src/pages`,
-        name: "pages",
-      },
-    },
     // {
     //   resolve: `gatsby-source-filesystem`,
     //   options: {
@@ -35,13 +28,7 @@ module.exports = {
     //     name: `blog`,
     //   },
     // },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/content/assets`,
-        name: `assets`,
-      },
-    },
+
     {
       resolve: `gatsby-transformer-remark`,
       options: {
@@ -98,13 +85,14 @@ module.exports = {
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
-    {
-      resolve: `gatsby-plugin-offline`,
-      options: {
-        importWorkboxFrom: `cdn`,
-        precachePages: [`/shop/`, `/about/*`, `/termin/`],
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-offline`,
+    //   options: {
+    //     importWorkboxFrom: `cdn`,
+    //     precachePages: [`/shop/`, `/about/*`, `/termin/`],
+    //   },
+    // },
+    `gatsby-plugin-offline`,
     "gatsby-plugin-netlify", // make sure to keep it last in the array
   ],
 }
