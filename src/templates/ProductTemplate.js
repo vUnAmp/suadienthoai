@@ -30,6 +30,9 @@ const ItemTemplate = ({ pageContext: { id, slug }, location }) => {
   const addToCart = () => {
     console.log("adding to cart")
   }
+  const handleCheckOut = () => {
+    console.log("Going to checkout ...")
+  }
   const settings = {
     dots: true,
     infinite: true,
@@ -72,25 +75,28 @@ const ItemTemplate = ({ pageContext: { id, slug }, location }) => {
                 <StarIcon />
                 <StarIcon />
               </div>
-              <button
-                className="btn btn-add"
-                color="primary"
-                onClick={addToCart}
-              >
-                Zum Einkaufswagen hinzugefügt
-              </button>
-              <div className="product-details__info">
-                <div className="product-details__info--ship">
-                  <span className="title">Abholung:</span>
-                  <span className="des">Lieferung an Abholstation möglich</span>
-                </div>
-                <div className="product-details__info--shipcost">
-                  <span className="title">Versand:</span>
-                  <span className="des">EUR 1,50 Standardversand</span>
-                </div>
-                <div className="product-details__info--shiptime">
-                  <span className="title">Lieferung:</span>
-                  <span className="des">3 tagen</span>
+              <div className="product-action__buy-info">
+                <button className="btn btn-add" onClick={addToCart}>
+                  In den Warenkorb
+                </button>
+                <button className="btn btn-checkout" onClick={handleCheckOut}>
+                  Sofort-Kaufen
+                </button>
+                <div className="product-details__info">
+                  <div className="product-details__info--ship">
+                    <span className="title">Abholung:</span>
+                    <span className="des">
+                      Lieferung an Abholstation möglich
+                    </span>
+                  </div>
+                  <div className="product-details__info--shipcost">
+                    <span className="title">Versand:</span>
+                    <span className="des">EUR 1,50 Standardversand</span>
+                  </div>
+                  <div className="product-details__info--shiptime">
+                    <span className="title">Lieferung:</span>
+                    <span className="des">3 tagen</span>
+                  </div>
                 </div>
               </div>
             </div>

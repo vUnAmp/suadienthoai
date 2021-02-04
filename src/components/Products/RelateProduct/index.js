@@ -52,6 +52,7 @@ const useStyles = makeStyles(theme => ({
   relatedWrap: {
     border: "1px solid #ededed",
     paddingBottom: "1rem",
+    marginTop: "2rem",
     marginBottom: "1rem",
   },
   title: {
