@@ -82,7 +82,7 @@ const RelateProduct = ({ data }) => {
   }
   return (
     <div className={classes.relatedWrap}>
-      <p className={classes.title}>Das könnte dir auch gefallen</p>
+      <p className={classes.title}>Das könnte dir gefallen</p>
       <Slider {...settings}>
         {newData.map((item, index) => {
           return (

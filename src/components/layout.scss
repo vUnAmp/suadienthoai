@@ -12,6 +12,7 @@
 @import "./Contact/contact";
 @import "./Footer/footer";
 @import "../templates/productDetails.scss";
+@import "../components/About/about.scss";
 
 .wrap-site {
   main {
@@ -42,3 +43,6 @@
   color: #333;
 }
 /////////////////
+.wrap-page {
+  padding-top: 100px;
+}
