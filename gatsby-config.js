@@ -16,11 +16,9 @@ module.exports = {
   },
   plugins: [
     {
-      // keep as first gatsby-source-filesystem plugin for gatsby image support
-      resolve: "gatsby-source-filesystem",
+      resolve: `gatsby-plugin-layout`,
       options: {
-        path: `${__dirname}/static`,
-        name: "uploads",
+        component: require.resolve(`./src/components/Layout/`),
       },
     },
     {
@@ -30,13 +28,13 @@ module.exports = {
         name: "pages",
       },
     },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/content/blog`,
-        name: `blog`,
-      },
-    },
+    // {
+    //   resolve: `gatsby-source-filesystem`,
+    //   options: {
+    //     path: `${__dirname}/content/blog`,
+    //     name: `blog`,
+    //   },
+    // },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
