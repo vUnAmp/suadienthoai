@@ -74,14 +74,14 @@ const Header = () => {
               </Link>
             </li>
             <li>
-              <Link to="/sewrvce">
+              <Link to="/">
                 <span className="header-link__item">Services</span>
               </Link>
             </li>
 
             <li>
-              <Link to="/contat">
-                <span className="header-link__item">Contact</span>
+              <Link to="/">
+                <span className="header-link__item">Termin</span>
               </Link>
             </li>
             <li>
@@ -91,7 +91,7 @@ const Header = () => {
             </li>
           </ul>
         </div>
-        {isRender && <Menubar isMount={isMount} />}
+        {isRender && <Menubar isMount={isMount} toggleMenu={toggleMenu} />}
         <div className="shop-cart">
           <ShoppingCartOutlinedIcon />
           <span className="count">30</span>

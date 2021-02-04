@@ -6,7 +6,7 @@ import ServiceIcon from "../../../Icons/Service"
 import ContactIcon from "../../../Icons/Contact"
 import TerminIcon from "../../../Icons/Termin"
 
-const Menubar = ({ isMount }) => {
+const Menubar = ({ isMount, toggleMenu }) => {
   return (
     <div
       id="burger"
@@ -15,7 +15,7 @@ const Menubar = ({ isMount }) => {
       }`}
     >
       <ul className="header-navlink__items boxFlex">
-        <li>
+        <li onClick={toggleMenu}>
           <Link to="/">
             <span>
               <HomeIcon width="20px" height="20px" />
@@ -23,7 +23,7 @@ const Menubar = ({ isMount }) => {
             <span>Home</span>
           </Link>
         </li>
-        <li>
+        <li onClick={toggleMenu}>
           <Link to="/about">
             <span>
               <AboutIcon width="20px" height="20px" />
@@ -31,7 +31,7 @@ const Menubar = ({ isMount }) => {
             <span>About</span>
           </Link>
         </li>
-        <li>
+        <li onClick={toggleMenu}>
           <Link to="/">
             <span>
               <ServiceIcon width="20px" height="20px" />
@@ -40,7 +40,7 @@ const Menubar = ({ isMount }) => {
           </Link>
         </li>
 
-        <li>
+        <li onClick={toggleMenu}>
           <Link to="/shop">
             <span>
               <ContactIcon width="20px" height="20px" />
@@ -48,7 +48,7 @@ const Menubar = ({ isMount }) => {
             <span>Shop</span>
           </Link>
         </li>
-        <li>
+        <li onClick={toggleMenu}>
           <Link to="/">
             <span>
               <TerminIcon width="20px" height="20px" />
