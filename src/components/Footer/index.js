@@ -7,7 +7,7 @@ const Footer = () => {
   const data = useSiteMeta()
 
   const picUrl = data.partners.nodes
-  console.log(data)
+
   return (
     <footer className="boxFull footer">
       <div className="box footer-wrap">

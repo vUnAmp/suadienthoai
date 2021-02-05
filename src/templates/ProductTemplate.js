@@ -18,17 +18,22 @@ import Slider from "react-slick"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 
+// REDUX
+
+import { addCartItem } from "../redux/Cart/cart.actions"
+import { useDispatch } from "react-redux"
+
 const ItemTemplate = ({ pageContext: { id, slug }, location }) => {
   // const data = useStaticQuery(GatsbyStripeData)
   // console.log(data)
+  const dispatch = useDispatch()
   const siteTitle = { slug }
   const data = useGatsbyStripeData()
-  console.log(data)
   const product = data.find(item => item.node.product.id === id)
   const price = (product.node.unit_amount / 100).toFixed(2)
 
   const addToCart = () => {
-    console.log("adding to cart")
+    dispatch(addCartItem({ ...product.node, price }))
   }
   const handleCheckOut = () => {
     console.log("Going to checkout ...")

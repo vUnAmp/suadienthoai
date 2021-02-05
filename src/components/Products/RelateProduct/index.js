@@ -64,7 +64,6 @@ const useStyles = makeStyles(theme => ({
 
 const RelateProduct = ({ data }) => {
   const classes = useStyles()
-  console.log(data)
   const n = data.length
   let newData = []
   let countItems = window.innerWidth > 600 ? 6 : 3

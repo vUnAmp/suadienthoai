@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 
-import { useStaticQuery, graphql, Link } from "gatsby"
+import { useStaticQuery, graphql, Link, navigate } from "gatsby"
 import Image from "gatsby-image"
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined"
 
@@ -92,7 +92,12 @@ const Header = () => {
           </ul>
         </div>
         {isRender && <Menubar isMount={isMount} toggleMenu={toggleMenu} />}
-        <div className="shop-cart">
+        <div
+          className="shop-cart"
+          onClick={() => {
+            navigate("/cart")
+          }}
+        >
           <ShoppingCartOutlinedIcon />
           <span className="count">30</span>
         </div>
