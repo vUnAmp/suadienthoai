@@ -16,6 +16,7 @@ import useGatsbyStripeData from "../hooks/useGatsbyStripeData"
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
+    // width: "100%",
     maxWidth: "72.5rem",
     margin: "0 auto",
     paddingTop: 100,
@@ -58,7 +59,7 @@ const ListProducts = () => {
   //   })
 
   return (
-    <Grid container className={classes.root} spacing={5}>
+    <Grid container className={`${classes.root} width-box`} spacing={5}>
       {data.map((product, i) => {
         const price = (product.node.unit_amount / 100).toFixed(2)
         return (
