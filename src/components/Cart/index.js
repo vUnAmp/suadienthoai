@@ -1,5 +1,8 @@
 import React from "react"
 import Img from "gatsby-image"
+import DeleteIcon from "@material-ui/icons/Delete"
+import RemoveIcon from "@material-ui/icons/Remove"
+import AddIcon from "@material-ui/icons/Add"
 
 // REDUX
 import { useDispatch, useSelector } from "react-redux"
@@ -62,12 +65,18 @@ const Cart = () => {
                       />
                     </div>
                     <div className="checkout-des">
-                      <p className="checkout-des__name cart-small-text">
+                      <p className="checkout-des__name cart-small-text subtitle">
                         {item.fields.name}
+                      </p>
+                      <p className="checkout-des__adjust">
+                        <RemoveIcon /> <span>{item.quantity}</span> <AddIcon />
                       </p>
                     </div>
                   </div>
                   <div className="line-items__price">
+                    <p className="line-items__delete">
+                      <DeleteIcon />
+                    </p>
                     <p className="cart-small-text">€{item.price}</p>
                   </div>
                 </div>
