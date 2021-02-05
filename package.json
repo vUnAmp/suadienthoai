@@ -12,7 +12,7 @@
     "@material-ui/icons": "^4.11.2",
     "@stripe/stripe-js": "^1.11.0",
     "emailjs-com": "^2.6.4",
-    "gatsby": "^2.32.0",
+    "gatsby": "^2.26.1",
     "gatsby-image": "^2.8.0",
     "gatsby-plugin-feed": "^2.10.0",
     "gatsby-plugin-google-analytics": "^2.8.0",
