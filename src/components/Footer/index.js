@@ -5,8 +5,9 @@ import useSiteMeta from "../hooks/useSiteMeta"
 
 const Footer = () => {
   const data = useSiteMeta()
+
   const picUrl = data.partners.nodes
-  console.log("footer is render ...")
+  console.log(data)
   return (
     <footer className="boxFull footer">
       <div className="box footer-wrap">

@@ -15,19 +15,27 @@ module.exports = {
     },
   },
   plugins: [
-    {
-      resolve: `gatsby-plugin-layout`,
-      options: {
-        component: require.resolve(`./src/components/Layout/`),
-      },
-    },
     // {
-    //   resolve: `gatsby-source-filesystem`,
+    //   resolve: `gatsby-plugin-layout`,
     //   options: {
-    //     path: `${__dirname}/content/blog`,
-    //     name: `blog`,
+    //     // component: require.resolve(`./src/components/Layout/`),
+    //     component: require.resolve(`./src/pages/`),
     //   },
     // },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `pages`,
+        path: `${__dirname}/src/pages/`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/assets`,
+        name: `image`,
+      },
+    },
 
     {
       resolve: `gatsby-transformer-remark`,

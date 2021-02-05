@@ -9,7 +9,7 @@ import Wedo from "../components/Wedo"
 import Contact from "../components/Contact"
 
 const BlogIndex = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata?.title || `Title`
+  const siteTitle = data?.site?.siteMetadata?.title || `Title`
 
   return (
     <Layout location={location} title={siteTitle}>

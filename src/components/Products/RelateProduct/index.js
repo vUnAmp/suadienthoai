@@ -67,10 +67,11 @@ const RelateProduct = ({ data }) => {
   console.log(data)
   const n = data.length
   let newData = []
-  for (let i = 0; i < n; i += 6) {
-    newData = [...newData, data.slice(i, i + 6)]
+  let countItems = window.innerWidth > 600 ? 6 : 3
+  for (let i = 0; i < n; i += countItems) {
+    newData = [...newData, data.slice(i, i + countItems)]
   }
-  console.log(newData)
+  console.log(window.innerWidth)
 
   const settings = {
     dots: true,
@@ -95,7 +96,7 @@ const RelateProduct = ({ data }) => {
               {item.map((product, i) => {
                 const price = (product.node.unit_amount / 100).toFixed(2)
                 return (
-                  <Grid item xs={2} key={(product, i)}>
+                  <Grid item xs={12 / countItems} key={(product, i)}>
                     <Card className={classes.maxWidth}>
                       <Link
                         className={classes.link}

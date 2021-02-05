@@ -42,20 +42,14 @@ const ItemTemplate = ({ pageContext: { id, slug }, location }) => {
     arrows: true,
   }
   return (
-    // <StoreLayout>
-    //   <ProductPage productId={id} />
-    // </StoreLayout>
-    // <Layout location={location} title={siteTitle}>
-
-    // </Layout>
     <Layout location={location} title={siteTitle}>
       <Container className="product-details" maxWidth="lg">
         <Grid container spacing={3}>
           <Grid item xs={12} sm={6}>
             <div className="product-details__image">
               <Slider {...settings}>
-                {product.node.product.localFiles.map(image => (
-                  <Img fluid={image.childImageSharp.fluid} />
+                {product.node.product.localFiles.map((image, index) => (
+                  <Img key={index} fluid={image.childImageSharp.fluid} />
                 ))}
               </Slider>
               {/* <Img
@@ -113,31 +107,3 @@ ItemTemplate.propTypes = {
 }
 
 export default ItemTemplate
-// const GatsbyStripeData = graphql`
-//   query GatsbyStripeData {
-//     allStripePrice {
-//       edges {
-//         node {
-//           unit_amount
-//           id
-//           currency
-//           fields {
-//             name
-//             slug
-//           }
-//           product {
-//             id
-//             description
-//             localFiles {
-//               childImageSharp {
-//                 fluid(maxWidth: 460, quality: 100) {
-//                   ...GatsbyImageSharpFluid_withWebp_tracedSVG
-//                 }
-//               }
-//             }
-//           }
-//         }
-//       }
-//     }
-//   }
-// `
