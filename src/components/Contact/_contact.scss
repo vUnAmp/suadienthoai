@@ -15,6 +15,7 @@
     span.contact-icon {
       display: flex;
       align-items: center;
+      justify-content: center;
       fill: #bf3600;
       color: #bf3600;
       margin-bottom: 1rem;
@@ -27,6 +28,9 @@
     span.contact-text {
       color: lighten($header-link, 20%);
       line-height: 1.6;
+      text-align: center;
+      width: 100%;
+      display: block;
     }
   }
 }

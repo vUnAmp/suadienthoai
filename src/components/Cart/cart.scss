@@ -1,3 +1,6 @@
+.text-center {
+  text-align: center;
+}
 .cart-small-text {
   color: #222;
   text-align: center;
@@ -5,8 +8,15 @@
   @include respond(md) {
     font-size: calc(8px + 1vw);
   }
+  a {
+    line-height: 45px;
+    color: chocolate;
+    cursor: pointer;
+    text-decoration: underline;
+  }
 }
 .cart-page {
+  margin-bottom: 1rem;
   .row-table {
     display: flex;
     justify-content: space-between;
@@ -33,6 +43,9 @@
 }
 .line-items__left {
   max-width: 79%;
+  svg {
+    cursor: pointer;
+  }
   .checkout-img-box {
     position: relative;
     margin-left: -100px;

@@ -1,5 +1,21 @@
 .product-details {
   padding-top: 100px;
+  .bread-crumbs {
+    margin-bottom: 0.6rem;
+    @include respond(md) {
+      padding-left: 40px;
+    }
+    a {
+      padding: 0 0.3rem;
+      color: #686868;
+      svg {
+        transform: translateY(4px);
+      }
+    }
+    &__home {
+      margin-left: -8px;
+    }
+  }
   .product-action__buy-info {
     background-color: #ededed;
     padding: 0.5rem 0;

@@ -6,7 +6,13 @@ import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined"
 
 import Menubar from "./Menubar"
 
-import useUnmount from "../shared/useHook/useUnMount"
+import useUnmount from "../hooks/useUnMount"
+
+import { useSelector } from "react-redux"
+
+const mapState = ({ cartData }) => ({
+  cartItems: cartData.cartItems,
+})
 
 const Header = () => {
   const [isMount, setIsMount] = useState(false)
@@ -15,6 +21,9 @@ const Header = () => {
     setIsMount(!isMount)
   }
   const isRender = useUnmount(isMount, 350)
+  const { cartItems } = useSelector(mapState)
+  console.log(cartItems)
+  let count = cartItems.reduce((a, b) => a + b.quantity, 0)
   const data = useStaticQuery(graphql`
     query HeaderQuery {
       logo: file(absolutePath: { regex: "/suachuaonline24.jpg/" }) {
@@ -99,7 +108,7 @@ const Header = () => {
           }}
         >
           <ShoppingCartOutlinedIcon />
-          <span className="count">30</span>
+          <span className="count">{count}</span>{" "}
         </div>
       </div>
     </header>

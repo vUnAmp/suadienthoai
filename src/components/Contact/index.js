@@ -23,7 +23,7 @@ const Contact = () => {
             <TimeOpenIcon width="3rem" height="3rem" />
             <span className="contact-title">Öffnungszeiten</span>
           </span>
-          <span>
+          <span className="contact-text">
             <strong>MI-SO</strong> 10:00 - 19:00 <br />
             <strong>DI</strong> Geschlossen
           </span>
