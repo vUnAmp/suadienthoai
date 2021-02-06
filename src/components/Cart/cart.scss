@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Monoton&display=swap");
 .text-center {
   text-align: center;
 }
@@ -120,3 +121,32 @@
 //   width: 220px;
 //   height: 220px;
 // }
+// SUCCESS PAGE
+.success-page {
+  padding-bottom: 1rem;
+  .thanks {
+    text-align: center;
+    font-family: "Monoton", cursive;
+    font-size: 80px;
+    color: white;
+    padding: 5rem;
+    background-color: darkslategrey;
+    margin-bottom: 2rem;
+  }
+}
+.success-email {
+  font-size: 25px;
+  color: chocolate;
+  text-align: center;
+}
+.success-back {
+  font-size: 25px;
+
+  text-align: center;
+  a {
+    color: darkblue;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

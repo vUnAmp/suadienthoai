@@ -20,7 +20,7 @@ const handler = async event => {
       body: JSON.stringify({ sessionId: session.id }, null, 2),
     }
   } catch (error) {
-    return { statusCode: 500, body: error.toString() }
+    // return { statusCode: 500, body: error.toString() }
   }
 }
 

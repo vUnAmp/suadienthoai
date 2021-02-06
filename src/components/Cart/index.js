@@ -29,7 +29,6 @@ const mapState = ({ cartData }) => ({
 })
 
 const Cart = () => {
-  const stripe = getStripe()
   const { cartItems } = useSelector(mapState)
   const dispatch = useDispatch()
   const data = useGatsbyStripeData()
@@ -42,6 +41,7 @@ const Cart = () => {
       // Map to  fomart  of STRIPE API https://stripe.com/docs/api/checkout/sessions/create?lang=node
       cartItems.map(item => ({ price: item.id, quantity: item.quantity }))
     )
+    const stripe = await getStripe()
     const { error } = await stripe.redirectToCheckout({
       sessionId,
     })
