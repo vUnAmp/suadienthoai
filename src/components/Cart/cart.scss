@@ -6,7 +6,7 @@
   text-align: center;
   font-weight: 600;
   @include respond(md) {
-    font-size: calc(8px + 1vw);
+    font-size: calc(8px + 0.8vw);
   }
   a {
     line-height: 45px;
@@ -32,6 +32,10 @@
   .btn-checkout {
     width: 100%;
   }
+  .cart-page__actions {
+    background-color: #ededed;
+    margin-bottom: 1rem;
+  }
 }
 .line-items {
   padding-left: 100px;
@@ -52,6 +56,7 @@
     width: 100px;
     height: 100px;
     float: left;
+    cursor: pointer;
     //   height: 100px;
   }
   .checkout-des {
@@ -62,6 +67,11 @@
       font-size: 13px;
       text-align: left;
       padding-left: 6px;
+      cursor: pointer;
+      &:hover {
+        text-decoration: underline;
+        color: chocolate;
+      }
     }
     .checkout-des__adjust {
       margin-left: 6px;
@@ -79,8 +89,8 @@
       span {
         display: inline-block;
         position: relative;
-        font-size: 20px;
-        top: 2px;
+        font-size: 16px;
+        top: 4px;
       }
     }
   }

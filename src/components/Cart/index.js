@@ -12,10 +12,12 @@ import {
   removeCartItem,
   reduceCartItem,
 } from "../../redux/Cart/cart.actions"
-
+// Hook
+import useGatsbyStripeData from "../hooks/useGatsbyStripeData"
 // Material UI
 import { Container, Grid } from "@material-ui/core"
-import { Link } from "gatsby"
+import { Link, navigate } from "gatsby"
+import RelateProduct from "../Products/RelateProduct"
 
 const mapState = ({ cartData }) => ({
   cartItems: cartData.cartItems,
@@ -24,7 +26,7 @@ const mapState = ({ cartData }) => ({
 const Cart = () => {
   const { cartItems } = useSelector(mapState)
   const dispatch = useDispatch()
-
+  const data = useGatsbyStripeData()
   const sumQty = cartItems.reduce((acc, curItem) => acc + curItem.quantity, 0)
   const sumMoney = cartItems
     .reduce((acc, curItem) => acc + curItem.quantity * curItem.price, 0)
@@ -48,10 +50,17 @@ const Cart = () => {
           <Grid container spacing={4}>
             <Grid item xs={12} md={8}>
               {cartItems.map((item, index) => {
+                console.log(item)
                 return (
                   <div key={index} className="line-items">
                     <div className="line-items__left">
-                      <div className="checkout-img-box">
+                      <div
+                        className="checkout-img-box"
+                        onClick={() => {
+                          // navigate(`/product/${item.fields.slug}`)
+                          window.open(`/product/${item.fields.slug}`)
+                        }}
+                      >
                         <Img
                           fluid={
                             item.product.localFiles[0].childImageSharp.fluid
@@ -59,7 +68,13 @@ const Cart = () => {
                         />
                       </div>
                       <div className="checkout-des">
-                        <p className="checkout-des__name cart-small-text subtitle">
+                        <p
+                          className="checkout-des__name cart-small-text subtitle"
+                          onClick={() => {
+                            // navigate(`/product/${item.fields.slug}`)
+                            window.open(`/product/${item.fields.slug}`)
+                          }}
+                        >
                           {item.fields.name}
                         </p>
                         <p className="checkout-des__adjust">
@@ -79,7 +94,7 @@ const Cart = () => {
                 )
               })}
             </Grid>
-            <Grid item xs={12} md={4}>
+            <Grid item xs={12} md={4} className="cart-page__actions">
               <div className="row-table">
                 <p className="row-table__key">Zwischensumme</p>
                 <p className="row-table__value">€{sumMoney}</p>
@@ -112,6 +127,7 @@ const Cart = () => {
             </p>
           </div>
         )}
+        <RelateProduct data={data} />
       </Container>
     </div>
   )
