@@ -19,11 +19,17 @@ import { Container, Grid } from "@material-ui/core"
 import { Link, navigate } from "gatsby"
 import RelateProduct from "../Products/RelateProduct"
 
+// SRIPE
+
+import fetchCheckoutSession from "../../stripe/fetchCheckoutSession"
+import getStripe from "../../stripe/utils"
+
 const mapState = ({ cartData }) => ({
   cartItems: cartData.cartItems,
 })
 
 const Cart = () => {
+  const stripe = getStripe()
   const { cartItems } = useSelector(mapState)
   const dispatch = useDispatch()
   const data = useGatsbyStripeData()
@@ -31,8 +37,14 @@ const Cart = () => {
   const sumMoney = cartItems
     .reduce((acc, curItem) => acc + curItem.quantity * curItem.price, 0)
     .toFixed(2)
-  const handleClearCart = () => {
-    dispatch(clearCart())
+  const handleCheckout = async () => {
+    const { sessionId } = await fetchCheckoutSession(
+      // Map to  fomart  of STRIPE API https://stripe.com/docs/api/checkout/sessions/create?lang=node
+      cartItems.map(item => ({ price: item.id, quantity: item.quantity }))
+    )
+    const { error } = await stripe.redirectToCheckout({
+      sessionId,
+    })
   }
   const handlePlus = product => {
     dispatch(addCartItem(product))
@@ -50,7 +62,6 @@ const Cart = () => {
           <Grid container spacing={4}>
             <Grid item xs={12} md={8}>
               {cartItems.map((item, index) => {
-                console.log(item)
                 return (
                   <div key={index} className="line-items">
                     <div className="line-items__left">
@@ -113,7 +124,7 @@ const Cart = () => {
                 <p className="row-table__value cart-small-text">€{sumMoney}</p>
               </div>
 
-              <button className="btn btn-checkout" onClick={handleClearCart}>
+              <button className="btn btn-checkout" onClick={handleCheckout}>
                 Zu Kasse
               </button>
             </Grid>

@@ -22,7 +22,6 @@ const Header = () => {
   }
   const isRender = useUnmount(isMount, 350)
   const { cartItems } = useSelector(mapState)
-  console.log(cartItems)
   let count = cartItems.reduce((a, b) => a + b.quantity, 0)
   const data = useStaticQuery(graphql`
     query HeaderQuery {

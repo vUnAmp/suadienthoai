@@ -70,8 +70,6 @@ const RelateProduct = ({ data }) => {
   for (let i = 0; i < n; i += countItems) {
     newData = [...newData, data.slice(i, i + countItems)]
   }
-  console.log(window.innerWidth)
-
   const settings = {
     dots: true,
     infinite: true,
