@@ -2,7 +2,10 @@ import { Link, navigate } from "gatsby"
 import React, { useState, useEffect } from "react"
 
 import { useDispatch, useSelector } from "react-redux"
-import { clearCart } from "../../../redux/Cart/cart.actions"
+import {
+  clearCart,
+  checkCheckoutSession,
+} from "../../../redux/Cart/cart.actions"
 
 // import SEO from "../SEO"
 
@@ -34,7 +37,7 @@ const ReviewOder = ({ location }) => {
         ${oderSuccessItems.map(
           item =>
             `<h4 style='color : chocolate'>
-             Artikel: ${item.fields.name}   Qty:${item.quantity}x EUR${item.price}
+             Artikel: ${item.fields.name}   <h4 style='padding-left : 10px'>Qty:${item.quantity}x</h4>  Price : EUR${item.price}
             </h4>`
         )}
 
@@ -52,7 +55,7 @@ const ReviewOder = ({ location }) => {
     emailjs
       .send(
         "service_l634urs",
-        "template_rt2n1wt",
+        "template_ivzmfwk",
         templateParams,
         "user_pjN71AkA6f8IUCEG6ohxc"
       )
@@ -60,6 +63,8 @@ const ReviewOder = ({ location }) => {
         result => {
           // TODO something ...
           dispatch(clearCart())
+
+          dispatch(checkCheckoutSession(sessionId))
         },
         error => {
           console.log(error.text)

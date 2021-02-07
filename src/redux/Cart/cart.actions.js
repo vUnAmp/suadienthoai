@@ -18,3 +18,7 @@ export const reduceCartItem = cartItem => ({
 export const clearCart = () => ({
   type: cartTypes.CLEAR_CART,
 })
+export const checkCheckoutSession = sessionId => ({
+  type: cartTypes.CHECK_CHECKOUT_SESSION,
+  payload: sessionId,
+})
