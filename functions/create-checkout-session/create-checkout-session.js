@@ -1,4 +1,6 @@
 const redirectUrl = "http://localhost:8888"
+// const redirectUrl = "https://repairphone24.de"
+
 const handler = async event => {
   try {
     const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY)

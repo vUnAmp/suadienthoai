@@ -55,6 +55,7 @@ const Cart = () => {
   const handleRemove = product => {
     dispatch(removeCartItem(product))
   }
+  console.log(cartItems)
   return (
     <div className="wrap-page cart-page">
       <Container maxWidth="lg">

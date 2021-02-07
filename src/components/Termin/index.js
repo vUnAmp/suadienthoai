@@ -34,6 +34,7 @@ const Termin = () => {
       from_name: `PhoneABC GmbH`,
       to_bcc: email,
     }
+
     emailjs
       .send(
         "service_l634urs",
