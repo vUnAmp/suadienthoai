@@ -7,11 +7,8 @@ import DataIcon from "../../Icons/DatabaseStorage"
 
 const Services = () => {
   return (
-    <div className="boxFull services">
+    <div className="boxFull services wrap-page">
       <div className="box services-wrap">
-        {/* <div className="box services-wrap__title">
-          <h1 className="h1-title">Unser Services</h1>
-        </div> */}
         <div className="box services-items">
           <div className="col-12 col-md-6">
             <div className="box">

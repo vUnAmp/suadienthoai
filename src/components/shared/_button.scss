@@ -1,4 +1,5 @@
 .btn {
+  position: relative;
   padding: 0.6rem 1.6rem;
   color: $btn-color;
   border: 1px solid $btn-color;
@@ -15,4 +16,15 @@
 .btn-bg {
   background-color: $btn-color;
   color: white;
+}
+.btn-icon {
+  padding: 2px;
+  position: absolute;
+  left: 10px;
+  transform: translateY(-4px);
+
+  svg {
+    // color: #222;
+  }
+  // display: none;
 }

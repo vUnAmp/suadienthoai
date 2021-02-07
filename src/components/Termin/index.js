@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { navigate } from "gatsby"
 
 import emailjs, { init } from "emailjs-com"
@@ -6,18 +6,21 @@ import emailjs, { init } from "emailjs-com"
 // import SEO from "../SEO"
 
 init("user_pjN71AkA6f8IUCEG6ohxc")
-const d = new Date()
-const month = d.getMonth() + 1
-const day = d.getDate()
-const year = d.getFullYear()
-const fullDate = [year, month, day].join("-")
 
 const Termin = () => {
-  const [terminDate, setTerminDate] = useState(`${fullDate}T00:00`)
+  const [terminDate, setTerminDate] = useState("")
   const [name, setName] = useState("")
   const [number, setNumber] = useState("")
   const [email, setEmail] = useState("")
   const [problem, setProblem] = useState("")
+  // useEffect(() => {
+  const d = new Date()
+  const month = d.getMonth() + 1
+  const day = d.getDate()
+  const year = d.getFullYear()
+  const fullDate = [year, month, day].join("-")
+  // setTerminDate(`${fullDate}T00:00`)
+  // }, [])
 
   const sendEmail = () => {
     // `khach hang: ${name}, sdt: ${number}, May : ${branch},  ${model}, Bi hong : ${problem} , Thoi gian ${terminDate} `
@@ -95,15 +98,16 @@ const Termin = () => {
         />
         <input
           className="form-time"
-          type="datetime-local"
+          type="date"
           id="meeting-time"
           name="meeting-time"
           value={terminDate}
+          // placeholder={fullDate}
           onChange={e => {
             setTerminDate(e.target.value)
           }}
           min="2020-06-07T00:00"
-          max="2021-10-14T00:00"
+          max="2022-10-14T00:00"
         ></input>
         <textarea
           placeholder="Problembeschreibung"

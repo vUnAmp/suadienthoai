@@ -1,3 +1,4 @@
+import { navigate } from "gatsby"
 import React from "react"
 import Termin from "../Termin"
 
@@ -16,8 +17,15 @@ const Intro = () => {
                 unsere Leistungen.
               </p>
               <div className="boxFlex cta-btn">
-                <button className="btn btn-bg">Services</button>
-                <button className="btn">How it work</button>
+                <button
+                  className="btn btn-bg"
+                  onClick={() => navigate("/services")}
+                >
+                  Services
+                </button>
+                <button className="btn" onClick={() => navigate("/shop")}>
+                  Zubehör Shop{" "}
+                </button>
               </div>
             </div>
           </div>

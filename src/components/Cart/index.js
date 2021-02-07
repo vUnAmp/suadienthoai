@@ -16,6 +16,7 @@ import {
 import useGatsbyStripeData from "../hooks/useGatsbyStripeData"
 // Material UI
 import { Container, Grid } from "@material-ui/core"
+
 import { Link, navigate } from "gatsby"
 import RelateProduct from "../Products/RelateProduct"
 
@@ -125,7 +126,10 @@ const Cart = () => {
                 <p className="row-table__value cart-small-text">€{sumMoney}</p>
               </div>
 
-              <button className="btn btn-checkout" onClick={handleCheckout}>
+              <button
+                className="btn btn-checkout btn-bg"
+                onClick={handleCheckout}
+              >
                 Zu Kasse
               </button>
             </Grid>

@@ -32,7 +32,7 @@ const Menubar = ({ isMount, toggleMenu }) => {
           </Link>
         </li>
         <li onClick={toggleMenu}>
-          <Link to="/">
+          <Link to="/services">
             <span>
               <ServiceIcon width="20px" height="20px" />
             </span>

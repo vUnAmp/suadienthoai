@@ -25,8 +25,9 @@
     align-items: center;
     .btn-add,
     .btn-checkout {
-      background-color: #39b34a;
-      color: #fff;
+      background-color: $btn-color;
+      // border: 1px solid #222;
+      color: rgb(238, 237, 237);
       border: none;
       margin-top: 1.2rem;
       width: 80%;
@@ -34,12 +35,12 @@
       display: block;
 
       &:hover {
-        background-color: darken(#39b34a, 5%);
+        background-color: darken($btn-color, 5%);
       }
     }
     .btn-checkout {
-      background-color: darken(#39b34a, 15%);
-      margin-top: 0.5rem;
+      background-color: darken($btn-color, 10%);
+      margin-top: 0.1rem;
     }
     .product-details__info {
       width: -webkit-fit-content;

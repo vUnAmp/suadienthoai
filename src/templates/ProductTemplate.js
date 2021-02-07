@@ -16,6 +16,8 @@ import {
 } from "@material-ui/core/"
 import StarIcon from "@material-ui/icons/Star"
 import HomeIcon from "@material-ui/icons/Home"
+import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined"
+import LocalPrintshopOutlinedIcon from "@material-ui/icons/LocalPrintshopOutlined"
 
 // import "./productDetails.scss"
 import useGatsbyStripeData from "../components/hooks/useGatsbyStripeData"
@@ -91,9 +93,15 @@ const ItemTemplate = ({ pageContext: { id, slug }, location }) => {
               </div>
               <div className="product-action__buy-info">
                 <button className="btn btn-add" onClick={addToCart}>
+                  <span className="btn-icon">
+                    <ShoppingCartOutlinedIcon />
+                  </span>
                   In den Warenkorb
                 </button>
                 <button className="btn btn-checkout" onClick={handleCheckOut}>
+                  <span className="btn-icon">
+                    <LocalPrintshopOutlinedIcon />
+                  </span>{" "}
                   Sofort-Kaufen
                 </button>
                 <div className="product-details__info">
