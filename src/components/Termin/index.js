@@ -3,29 +3,26 @@ import { navigate } from "gatsby"
 
 import emailjs, { init } from "emailjs-com"
 
-// import SEO from "../SEO"
+import SEO from "../SEO"
 
 init("user_pjN71AkA6f8IUCEG6ohxc")
 
 const Termin = () => {
-  const [terminDate, setTerminDate] = useState("")
+  const [terminDate, setTerminDate] = useState(new Date())
   const [name, setName] = useState("")
   const [number, setNumber] = useState("")
   const [email, setEmail] = useState("")
   const [problem, setProblem] = useState("")
   // useEffect(() => {
-  const d = new Date()
-  const month = d.getMonth() + 1
-  const day = d.getDate()
-  const year = d.getFullYear()
-  const fullDate = [year, month, day].join("-")
-  // setTerminDate(`${fullDate}T00:00`)
+  //   const d = new Date()
+  //   const month = d.getMonth() + 1
+  //   const day = d.getDate()
+  //   const year = d.getFullYear()
+  //   const fullDate = [year, month, day].join("-")
+  //   setTerminDate(`${fullDate}T00:00`)
   // }, [])
 
   const sendEmail = () => {
-    // `khach hang: ${name}, sdt: ${number}, May : ${branch},  ${model}, Bi hong : ${problem} , Thoi gian ${terminDate} `
-    // <li>Handy Model: ${branch} - ${model}  </li>
-    // <li>Problem : ${problem}  </li>
     const templateParams = {
       message_html: `<div><ol style="font-size: 18px">
       <li>Name: ${name}  </li>
@@ -57,7 +54,7 @@ const Termin = () => {
   }
   return (
     <>
-      {/* <SEO title="Termin buchen" /> */}
+      <SEO title="Termin buchen" />
       <form
         className="termin"
         onSubmit={e => {
@@ -66,56 +63,74 @@ const Termin = () => {
         }}
       >
         <h3>Termin Buchen</h3>
+        <label className="form-label" htmlFor="form-name">
+          Ihr Name
+        </label>
         <input
+          id="form-name"
           className="form-name"
           type="text"
-          placeholder="Ihr Name"
+          // placeholder="Ihr Name"
           value={name}
           onChange={e => {
             setName(e.target.value)
           }}
           required
         />
+        <label className="form-label" htmlFor="form-number">
+          Handy Numer
+        </label>
         <input
+          id="form-number"
           className="form-number"
           type="number"
-          placeholder="Handy Numer"
+          // placeholder="Handy Numer"
           value={number}
           onChange={e => {
             setNumber(e.target.value)
           }}
           required
         />
+        <label className="form-label" htmlFor="form-email">
+          Email Addresse
+        </label>
         <input
+          id="form-email"
           className="form-email"
           type="email"
-          placeholder="Email Address"
+          // placeholder="Email Address"
           value={email}
           onChange={e => {
             setEmail(e.target.value)
           }}
           required
         />
+        <label className="form-label" htmlFor="meeting-time">
+          {" "}
+          Time{" "}
+        </label>
         <input
           className="form-time"
-          type="date"
+          type="datetime-local"
           id="meeting-time"
           name="meeting-time"
           value={terminDate}
-          // placeholder={fullDate}
           onChange={e => {
             setTerminDate(e.target.value)
           }}
           min="2020-06-07T00:00"
           max="2022-10-14T00:00"
-        ></input>
+        />
+        <label className="form-label" htmlFor="termin-problem">
+          Problembeschreibung
+        </label>
         <textarea
-          placeholder="Problembeschreibung"
+          id="termin-problem"
+          // placeholder="Problembeschreibung"
           onChange={e => {
             setProblem(e.target.value)
           }}
-        ></textarea>
-
+        />
         <input className="form-submit" type="submit" value="Termin buchen" />
       </form>
     </>
