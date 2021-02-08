@@ -3,7 +3,7 @@ import { navigate } from "gatsby"
 
 import emailjs, { init } from "emailjs-com"
 
-import SEO from "../SEO"
+import SEO from "../seo"
 
 init("user_pjN71AkA6f8IUCEG6ohxc")
 

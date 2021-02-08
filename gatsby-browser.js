@@ -8,7 +8,8 @@ import "./src/normalize.css"
 
 // Highlighting for code blocks
 import "prismjs/themes/prism.css"
-
+import "firebase/auth"
+import "firebase/firestore"
 /**
  * Implement Gatsby's Browser APIs in this file.
  *
