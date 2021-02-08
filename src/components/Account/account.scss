@@ -1,0 +1,20 @@
+.form-submit__account {
+  text-transform: none !important;
+  letter-spacing: 1px;
+}
+.form-account__header {
+  h3 {
+    text-align: left;
+  }
+  padding-left: 10px;
+  color: #676767;
+}
+.form-account__link {
+  padding-left: 10px;
+  strong {
+    font-weight: 400;
+    text-decoration: underline;
+    color: rgb(68, 56, 238);
+    cursor: pointer;
+  }
+}

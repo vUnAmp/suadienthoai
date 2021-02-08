@@ -56,7 +56,7 @@ const Termin = () => {
     <>
       <SEO title="Termin buchen" />
       <form
-        className="termin"
+        className="termin form-share"
         onSubmit={e => {
           e.preventDefault()
           sendEmail()

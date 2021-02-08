@@ -14,28 +14,30 @@ import Menubar from "./Menubar"
 import useUnmount from "../hooks/useUnMount"
 
 import { useSelector } from "react-redux"
+import Account from "../Account"
 
-function rand() {
-  return Math.round(Math.random() * 20) - 10
-}
+// function rand() {
+//   return Math.round(Math.random() * 20) - 10
+// }
 
-function getModalStyle() {
-  const top = 50 + rand()
-  const left = 50 + rand()
+// function getModalStyle() {
+//   const top = 50 + rand()
+//   const left = 50 + rand()
 
-  return {
-    top: `${top}%`,
-    left: `${left}%`,
-    transform: `translate(-${top}%, -${left}%)`,
-  }
-}
+//   return {
+//     top: `${top}%`,
+//     left: `${left}%`,
+//     transform: `translate(-${top}%, -${left}%)`,
+//   }
+// }
 
 const useStyles = makeStyles(theme => ({
   paper: {
     position: "absolute",
-    width: 400,
+    maxWidth: 600,
+    width: "96%",
     // backgroundColor: theme.palette.background.paper,
-    border: "2px solid #000",
+    border: "1px solid #666",
     // boxShadow: theme.shadows[5],
     // padding: theme.spacing(2, 4, 3),
   },
@@ -48,7 +50,7 @@ const Header = () => {
   const [isMount, setIsMount] = useState(false)
   const classes = useStyles()
   // getModalStyle is not a pure function, we roll the style only on the first render
-  const [modalStyle] = React.useState(getModalStyle)
+  // const [modalStyle] = React.useState(getModalStyle)
   const [open, setOpen] = React.useState(false)
 
   const handleOpen = () => {
@@ -143,24 +145,25 @@ const Header = () => {
             <li onClick={handleOpen}>
               <span className="header-link__account">Account</span>
             </li>
-            <Modal
-              open={open}
-              onClose={handleClose}
-              aria-labelledby="simple-modal-title"
-              aria-describedby="simple-modal-description"
-            >
-              <div style={modalStyle} className={classes.paper}>
-                <h2 id="simple-modal-title">Text in a modal</h2>
-                <p id="simple-modal-description">
-                  Duis mollis, est non commodo luctus, nisi erat porttitor
-                  ligula.
-                </p>
-                {/* <SimpleModal /> */}
-              </div>
-            </Modal>
           </ul>
+          <Modal
+            open={open}
+            onClose={handleClose}
+            aria-labelledby="simple-modal-title"
+            aria-describedby="simple-modal-description"
+          >
+            <div className={`${classes.paper} page-modal`}>
+              <Account />
+            </div>
+          </Modal>
         </div>
-        {isRender && <Menubar isMount={isMount} toggleMenu={toggleMenu} />}
+        {isRender && (
+          <Menubar
+            isMount={isMount}
+            toggleMenu={toggleMenu}
+            handleOpen={handleOpen}
+          />
+        )}
         <div
           className="shop-cart"
           onClick={() => {

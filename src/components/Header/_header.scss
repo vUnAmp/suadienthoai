@@ -185,6 +185,15 @@ header.boxFull {
   border-radius: 4px;
   cursor: pointer;
 }
+.page-modal {
+  top: 150px;
+  left: 50%;
+  transform: translate(-50%, -50px);
+  .header-account__nav .MuiTabs-flexContainer {
+    justify-content: center;
+  }
+}
+
 @-webkit-keyframes fadeIn {
   0% {
     transform: translateX(100%);
