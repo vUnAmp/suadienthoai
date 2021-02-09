@@ -5,7 +5,13 @@ import Input from "@material-ui/core/Input"
 
 const SignUp = ({ handleChange }) => {
   const { register, handleSubmit, errors } = useForm()
-  const onSubmit = data => console.log(data)
+  const onSubmit = async data => {
+    const { firstName, email, password } = data
+    const user = await firebase
+      .auth()
+      .createUserWithEmailAndPassword(email, password)
+    console.log(user)
+  }
 
   return (
     <div>
