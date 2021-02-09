@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form"
 import Input from "@material-ui/core/Input"
 
 const SignUp = ({ handleChange }) => {
-  const { register, handleSubmit, setValue } = useForm()
+  const { register, handleSubmit, errors } = useForm()
   const onSubmit = data => console.log(data)
 
   return (
@@ -21,23 +21,41 @@ const SignUp = ({ handleChange }) => {
           placeholder="Ihr Name"
           className="form-name"
           name="firstName"
-          ref={register({ required: true, maxLength: 20 })}
+          ref={register({
+            required: true,
+            minLength: 4,
+          })}
         />
-        {/* <input name="lastName" ref={register({ pattern: /^[A-Za-z]+$/i })} /> */}
+        {errors.firstName && (
+          <p className="form-account__error">
+            Bitte geben Sie Ihren Namen ein.
+          </p>
+        )}
+
         <input
           placeholder="Ihr Email"
           className="form-email"
           name="email"
           type="email"
-          ref={register({ required: true, min: 12, max: 99 })}
+          ref={register({ required: true, minLength: 12 })}
         />
+        {errors.email && (
+          <p className="form-account__error">
+            Bitte geben Sie eine gültige Email-Adresse ein.
+          </p>
+        )}
         <input
           placeholder="Password"
           className="form-email"
           name="password"
           type="password"
-          ref={register({ required: true, min: 6, max: 99 })}
+          ref={register({ required: true, minLength: 6 })}
         />
+        {errors.password && (
+          <p className="form-account__error">
+            Bitte geben Sie Ihr Passwort ein(mindestens 6 Zeichen)
+          </p>
+        )}
         <input
           type="submit"
           className="btn form-submit form-submit__account"

@@ -18,3 +18,16 @@
     cursor: pointer;
   }
 }
+.form-account__error {
+  color: red;
+  font-size: 12px;
+  text-align: left;
+  padding-left: 16px;
+  width: 100%;
+  margin: 0;
+
+  &:before {
+    display: inline;
+    content: "⚠ ";
+  }
+}
