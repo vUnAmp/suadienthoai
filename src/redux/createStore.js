@@ -14,7 +14,7 @@ const composeEnhancers =
   compose
 export const middlewares = [
   thunk,
-  logger,
+  // logger,
   // sagaMiddleware
 ]
 
