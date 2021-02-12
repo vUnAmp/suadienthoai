@@ -5,13 +5,13 @@ module.exports = {
   siteMetadata: {
     title: `Handy repair in DongXuan`,
     author: {
-      name: `stephan`,
+      name: `StevPhan`,
       summary: `who lives and works in San Francisco building useful things.`,
     },
     description: `We building a small technik company.`,
     siteUrl: `https://repairphone24.de/`,
     social: {
-      facebook: `stephan`,
+      facebook: `StevPhan`,
     },
   },
   plugins: [
