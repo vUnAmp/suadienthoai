@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import useGatsbyStripeData from "../../hooks/useGatsbyStripeData"
 
 // Gatsby
@@ -66,7 +66,7 @@ const RelateProduct = ({ data }) => {
   const classes = useStyles()
   const n = data.length
   let newData = []
-  let countItems = window.innerWidth > 600 ? 6 : 3
+  let countItems
   for (let i = 0; i < n; i += countItems) {
     newData = [...newData, data.slice(i, i + countItems)]
   }
@@ -78,6 +78,10 @@ const RelateProduct = ({ data }) => {
     slidesToScroll: 1,
     arrows: true,
   }
+  useEffect(() => {
+    countItems = window.innerWidth > 600 ? 6 : 3
+  }, [])
+
   return (
     <div className={classes.relatedWrap}>
       <p className={classes.title}>Das könnte dir gefallen</p>

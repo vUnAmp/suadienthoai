@@ -14,7 +14,9 @@ export default ({ element }) => {
 
   return (
     <Provider store={store}>
-      <PersistGate persistor={persistor}>{element}</PersistGate>
+      {element}
+      {/* <PersistGate persistor={persistor}>
+        </PersistGate> */}
     </Provider>
   )
 }

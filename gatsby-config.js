@@ -25,8 +25,8 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `pages`,
         path: `${__dirname}/src/pages/`,
+        name: `pages`,
       },
     },
     {
@@ -59,6 +59,7 @@ module.exports = {
         ],
       },
     },
+    `gatsby-plugin-material-ui`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-sass`,
@@ -114,7 +115,7 @@ module.exports = {
     //     precachePages: [`/shop/`, `/about/*`, `/termin/`],
     //   },
     // },
-    `gatsby-plugin-offline`,
+    // `gatsby-plugin-offline`,
     "gatsby-plugin-netlify", // make sure to keep it last in the array
   ],
 }

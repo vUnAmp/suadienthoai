@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import { navigate } from "gatsby"
 
 import emailjs, { init } from "emailjs-com"
-
-import SEO from "../seo"
 
 init("user_pjN71AkA6f8IUCEG6ohxc")
 
@@ -13,14 +11,6 @@ const Termin = () => {
   const [number, setNumber] = useState("")
   const [email, setEmail] = useState("")
   const [problem, setProblem] = useState("")
-  // useEffect(() => {
-  //   const d = new Date()
-  //   const month = d.getMonth() + 1
-  //   const day = d.getDate()
-  //   const year = d.getFullYear()
-  //   const fullDate = [year, month, day].join("-")
-  //   setTerminDate(`${fullDate}T00:00`)
-  // }, [])
 
   const sendEmail = () => {
     const templateParams = {
@@ -54,7 +44,6 @@ const Termin = () => {
   }
   return (
     <>
-      <SEO title="Termin buchen" />
       <form
         className="termin form-share"
         onSubmit={e => {

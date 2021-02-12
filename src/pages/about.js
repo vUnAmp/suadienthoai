@@ -7,7 +7,7 @@ const About = ({ data, location }) => {
   const siteTitle = "ÜBER UNS"
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title="Uber uns" />
+      <SEO title="ÜBER UNS" />
       <AboutUs />
     </Layout>
   )

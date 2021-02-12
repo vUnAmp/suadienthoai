@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import "../layout.scss"
-import Header from "../Header"
+import Header from "../Header/index_backup"
 
 import Footer from "../Footer"
 

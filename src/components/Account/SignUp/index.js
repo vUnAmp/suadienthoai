@@ -10,7 +10,9 @@ const SignUp = ({ handleChange }) => {
     const user = await firebase
       .auth()
       .createUserWithEmailAndPassword(email, password)
-    console.log(user)
+    if (user) {
+      alert(`Thanks ${firstName} . SignUp success`)
+    }
   }
 
   return (
