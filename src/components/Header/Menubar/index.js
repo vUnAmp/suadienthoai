@@ -6,7 +6,7 @@ import ServiceIcon from "../../../Icons/Service"
 import ContactIcon from "../../../Icons/Contact"
 import TerminIcon from "../../../Icons/Termin"
 
-const Menubar = ({ isMount, toggleMenu, handleOpen }) => {
+const Menubar = ({ isMount, toggleMenu }) => {
   return (
     <div
       id="burger"
@@ -14,16 +14,6 @@ const Menubar = ({ isMount, toggleMenu, handleOpen }) => {
         isMount ? "header-navlink  header-navlink__active" : "header-navlink"
       }`}
     >
-      <span
-        role="button"
-        onClick={() => {
-          toggleMenu()
-          handleOpen()
-        }}
-        className="header-link__account"
-      >
-        Account
-      </span>
       <ul className="header-navlink__items boxFlex">
         <li onClick={toggleMenu}>
           <Link to="/">

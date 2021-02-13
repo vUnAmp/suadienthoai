@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 
 import { useStaticQuery, graphql, Link, navigate } from "gatsby"
 import Image from "gatsby-image"
@@ -6,6 +6,7 @@ import Image from "gatsby-image"
 // Material UI
 
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined"
+import AccountCircleRoundedIcon from "@material-ui/icons/AccountCircleRounded"
 import { makeStyles } from "@material-ui/core/styles"
 import Modal from "@material-ui/core/Modal"
 
@@ -13,23 +14,9 @@ import Menubar from "./Menubar"
 
 import useUnmount from "../hooks/useUnMount"
 
-import { useSelector } from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
 import Account from "../Account"
-
-// function rand() {
-//   return Math.round(Math.random() * 20) - 10
-// }
-
-// function getModalStyle() {
-//   const top = 50 + rand()
-//   const left = 50 + rand()
-
-//   return {
-//     top: `${top}%`,
-//     left: `${left}%`,
-//     transform: `translate(-${top}%, -${left}%)`,
-//   }
-// }
+import { checkUserSession } from "../../redux/User/user.actions"
 
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -42,8 +29,9 @@ const useStyles = makeStyles(theme => ({
     // padding: theme.spacing(2, 4, 3),
   },
 }))
-const mapState = ({ cartData }) => ({
+const mapState = ({ cartData, user }) => ({
   cartItems: cartData.cartItems,
+  currentUser: user.currentUser,
 })
 
 const Header = () => {
@@ -55,6 +43,7 @@ const Header = () => {
 
   const handleOpen = () => {
     setOpen(true)
+    setIsMount(false)
   }
 
   const handleClose = () => {
@@ -65,7 +54,8 @@ const Header = () => {
     setIsMount(!isMount)
   }
   const isRender = useUnmount(isMount, 350)
-  const { cartItems } = useSelector(mapState)
+  const { cartItems, currentUser } = useSelector(mapState)
+  const dispatch = useDispatch()
   let count = cartItems.reduce((a, b) => a + b.quantity, 0)
   const data = useStaticQuery(graphql`
     query HeaderQuery {
@@ -79,6 +69,12 @@ const Header = () => {
     }
   `)
   const logo = data?.logo?.childImageSharp?.fixed
+
+  useEffect(() => {
+    if (currentUser) setOpen(false)
+    dispatch(checkUserSession())
+  }, [])
+
   return (
     <header className="boxFull">
       <div className="box boxFlex">
@@ -141,37 +137,39 @@ const Header = () => {
                 <span className="header-link__item">Shop</span>
               </Link>
             </li>
-            <li onClick={handleOpen}>
-              <span className="header-link__account">Account</span>
-            </li>
           </ul>
           <Modal
             open={open}
             onClose={handleClose}
             aria-labelledby="simple-modal-title"
             aria-describedby="simple-modal-description"
+            className="account-modal"
           >
             <div className={`${classes.paper} page-modal`}>
               <Account />
             </div>
           </Modal>
         </div>
-        {isRender && (
-          <Menubar
-            isMount={isMount}
-            toggleMenu={toggleMenu}
-            handleOpen={handleOpen}
-          />
-        )}
-        <div
-          role="button"
-          className="shop-cart"
-          onClick={() => {
-            navigate("/cart")
-          }}
-        >
-          <ShoppingCartOutlinedIcon />
-          <span className="count">{count}</span>{" "}
+        {isRender && <Menubar isMount={isMount} toggleMenu={toggleMenu} />}
+        <div className="boxFlex">
+          <div
+            className="header-link__account"
+            onClick={currentUser ? () => navigate("/account") : handleOpen}
+          >
+            <span>
+              <AccountCircleRoundedIcon />
+            </span>
+          </div>
+          <div
+            role="button"
+            className="shop-cart"
+            onClick={() => {
+              navigate("/cart")
+            }}
+          >
+            <ShoppingCartOutlinedIcon />
+            <span className="count">{count}</span>{" "}
+          </div>
         </div>
       </div>
     </header>

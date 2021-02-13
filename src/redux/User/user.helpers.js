@@ -22,3 +22,11 @@ export const handleUserData = async ({ user, displayName }) => {
   }
   return userRef
 }
+export const checkUserAuth = async () => {
+  return new Promise((resolve, reject) => {
+    const unsubscribe = firebase.auth().onAuthStateChanged(user => {
+      unsubscribe()
+      resolve(user)
+    }, reject)
+  })
+}

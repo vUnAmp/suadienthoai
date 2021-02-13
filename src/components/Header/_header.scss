@@ -18,6 +18,13 @@ header.boxFull {
       display: flex;
     }
   }
+  .header-logo {
+    position: relative;
+    left: 15%;
+    @include respond(md) {
+      position: unset;
+    }
+  }
   .header-burger-menu {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -164,7 +171,7 @@ header.boxFull {
   }
   .shop-cart {
     position: relative;
-    padding-right: 10px;
+    margin-right: 20px;
     cursor: pointer;
 
     svg {
@@ -179,17 +186,24 @@ header.boxFull {
   }
 }
 .header-link__account {
-  margin-right: 6px;
-  line-height: 47px;
-  padding: 10px 14px;
-  background: deeppink;
-  color: white;
-  font-weight: 700;
-  border-radius: 4px;
+  height: 100%;
   cursor: pointer;
+  span {
+    display: block;
+    position: relative;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    svg {
+      font-size: 1.8rem;
+    }
+  }
+}
+.account-modal {
+  overflow-y: auto;
+  z-index: 2100 !important;
 }
 .page-modal {
-  top: 150px;
+  top: 180px;
   left: 50%;
   transform: translate(-50%, -50px);
   .header-account__nav .MuiTabs-flexContainer {
