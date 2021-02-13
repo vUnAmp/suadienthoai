@@ -1,5 +1,5 @@
 import { navigate } from "gatsby"
-import React from "react"
+import React, { useEffect } from "react"
 import Layout from "../components/Layout/layout"
 import SEO from "../components/seo"
 
@@ -8,7 +8,9 @@ import firebase from "gatsby-plugin-firebase"
 const Account = ({ data, location }) => {
   const siteTitle = "Account details"
   console.log(location)
-  if (location.action !== "PUSH") navigate("/")
+  useEffect(() => {
+    if (location.action !== "PUSH") navigate("/")
+  }, [])
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="Account Details" />
