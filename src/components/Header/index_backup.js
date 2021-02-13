@@ -79,7 +79,6 @@ const Header = () => {
     }
   `)
   const logo = data?.logo?.childImageSharp?.fixed
-
   return (
     <header className="boxFull">
       <div className="box boxFlex">

@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import Img from "gatsby-image"
 import DeleteIcon from "@material-ui/icons/Delete"
 import RemoveIcon from "@material-ui/icons/Remove"
@@ -56,7 +56,7 @@ const Cart = () => {
   const handleRemove = product => {
     dispatch(removeCartItem(product))
   }
-  console.log(cartItems)
+
   return (
     <div className="wrap-page cart-page">
       <Container maxWidth="lg">

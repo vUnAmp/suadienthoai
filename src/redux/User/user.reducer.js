@@ -12,7 +12,11 @@ const userReducer = (state = INITIAL_STATE, action) => {
         ...state,
         userErr: action.payload,
       }
-
+    case userTypes.SIGN_IN_SUCCESS:
+      return {
+        ...state,
+        currentUser: action.payload,
+      }
     default:
       return state
   }

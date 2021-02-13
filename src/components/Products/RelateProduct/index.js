@@ -86,7 +86,6 @@ const RelateProduct = ({ data }) => {
     setRenderData(newData)
     setCount(countItems)
   }, [count])
-  console.log(count)
   return (
     <div className={classes.relatedWrap}>
       <p className={classes.title}>Das könnte dir gefallen</p>

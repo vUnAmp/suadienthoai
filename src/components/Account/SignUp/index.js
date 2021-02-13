@@ -14,7 +14,7 @@ const SignUp = ({ handleChange }) => {
   const dispatch = useDispatch()
   const { userErr } = useSelector(mapState)
   const { register, handleSubmit, errors } = useForm()
-  const onSubmit = async data => {
+  const onSubmit = data => {
     // const { firstName, email, password } = data
     dispatch(startSignUP(data))
     // const user = await firebase
@@ -24,7 +24,6 @@ const SignUp = ({ handleChange }) => {
     //   alert(`Thanks ${firstName} . SignUp success`)
     // }
   }
-  console.log(userErr)
 
   return (
     <div>
@@ -39,13 +38,13 @@ const SignUp = ({ handleChange }) => {
         <input
           placeholder="Ihr Name"
           className="form-name"
-          name="firstName"
+          name="displayName"
           ref={register({
             required: true,
             minLength: 4,
           })}
         />
-        {errors.firstName && (
+        {errors.displayName && (
           <p className="form-account__error">
             Bitte geben Sie Ihren Namen ein.
           </p>
@@ -80,6 +79,7 @@ const SignUp = ({ handleChange }) => {
           className="btn form-submit form-submit__account"
           value="Registrieren"
         />
+        {userErr && <p className="form-account__error">{userErr}</p>}
         <p onClick={handleChange} className="form-account__link">
           Sie haben bereits ein Konto? <strong>Zur Anmeldung</strong>
         </p>

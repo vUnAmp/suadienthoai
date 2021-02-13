@@ -3,9 +3,16 @@ import firebase from "gatsby-plugin-firebase"
 import { useForm } from "react-hook-form"
 import Input from "@material-ui/core/Input"
 
+// Redux
+import { useDispatch } from "react-redux"
+import { signInEmail } from "../../../redux/User/user.actions"
+
 const SignIn = ({ handleChange }) => {
+  const dispatch = useDispatch()
   const { register, handleSubmit, errors } = useForm()
-  const onSubmit = data => console.log(data)
+  const onSubmit = data => {
+    dispatch(signInEmail(data))
+  }
 
   return (
     <div>
@@ -29,7 +36,7 @@ const SignIn = ({ handleChange }) => {
           className="form-email"
           name="email"
           type="email"
-          ref={register({ required: true, min: 12, max: 99 })}
+          ref={register({ required: true, minLength: 12 })}
         />
         {errors.email && (
           <p className="form-account__error">
@@ -41,7 +48,7 @@ const SignIn = ({ handleChange }) => {
           className="form-email"
           name="password"
           type="password"
-          ref={register({ required: true, min: 6, max: 99 })}
+          ref={register({ required: true, minLength: 6 })}
         />
         {errors.password && (
           <p className="form-account__error">
