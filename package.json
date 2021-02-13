@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-blog",
+  "name": "repairphone24",
   "private": true,
-  "description": "A starter for a blog powered by Gatsby and Markdown",
+  "description": "A phone repair website",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "StevPhan <lebenistcode@gmail.com>",
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },

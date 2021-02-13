@@ -15,6 +15,7 @@ const Menubar = ({ isMount, toggleMenu, handleOpen }) => {
       }`}
     >
       <span
+        role="button"
         onClick={() => {
           toggleMenu()
           handleOpen()

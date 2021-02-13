@@ -18,7 +18,7 @@ const Success = ({ location }) => {
   const siteTitle = `Success checkout`
   useEffect(() => {
     tempSessionId === sessionId ? navigate("/") : setCheckSession(true)
-  }, [])
+  }, [tempSessionId, sessionId])
   return (
     <Layout location={location} title={siteTitle}>
       {checkSession && <ReviewOder location={location} />}

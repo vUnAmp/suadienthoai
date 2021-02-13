@@ -164,14 +164,17 @@ header.boxFull {
   }
   .shop-cart {
     position: relative;
+    padding-right: 10px;
     cursor: pointer;
+
     svg {
       font-size: 2rem;
       color: #333;
     }
     span.count {
-      font-size: 13px;
+      font-size: 17px;
       position: absolute;
+      font-weight: 700;
     }
   }
 }

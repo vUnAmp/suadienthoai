@@ -1,19 +1,12 @@
 import React from "react"
 import PropTypes from "prop-types"
 import Layout from "../components/Layout/layout"
-import { useStaticQuery, graphql, Link, navigate } from "gatsby"
+import { Link } from "gatsby"
 import Img from "gatsby-image"
 // import StoreLayout from "../components/StoreLayout"
 // import ProductPage from "../components/ProductPage"
 
-import {
-  Container,
-  Box,
-  Grid,
-  Button,
-  Breadcrumbs,
-  StyledBreadcrumb,
-} from "@material-ui/core/"
+import { Container, Grid, Breadcrumbs } from "@material-ui/core/"
 import StarIcon from "@material-ui/icons/Star"
 import HomeIcon from "@material-ui/icons/Home"
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined"

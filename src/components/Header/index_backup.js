@@ -165,6 +165,7 @@ const Header = () => {
           />
         )}
         <div
+          role="button"
           className="shop-cart"
           onClick={() => {
             navigate("/cart")

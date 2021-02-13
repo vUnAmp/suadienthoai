@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react"
-import { graphql, Link, StaticQuery } from "gatsby"
+import React, { useState } from "react"
+import { Link } from "gatsby"
 import Img from "gatsby-image"
 import { makeStyles } from "@material-ui/core/styles"
 
@@ -8,7 +8,7 @@ import Card from "@material-ui/core/Card"
 import CardHeader from "@material-ui/core/CardHeader"
 import CardContent from "@material-ui/core/CardContent"
 
-import { useSelector, useDispatch } from "react-redux"
+// import { useSelector, useDispatch } from "react-redux"
 
 // Query data
 import useGatsbyStripeData from "../hooks/useGatsbyStripeData"

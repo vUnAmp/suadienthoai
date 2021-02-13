@@ -1,19 +1,30 @@
 import React from "react"
-import firebase from "gatsby-plugin-firebase"
+
 import { useForm } from "react-hook-form"
-import Input from "@material-ui/core/Input"
+
+// REDUX
+import { startSignUP } from "../../../redux/User/user.actions"
+import { useDispatch, useSelector } from "react-redux"
+
+const mapState = ({ user }) => ({
+  userErr: user.userErr,
+})
 
 const SignUp = ({ handleChange }) => {
+  const dispatch = useDispatch()
+  const { userErr } = useSelector(mapState)
   const { register, handleSubmit, errors } = useForm()
   const onSubmit = async data => {
-    const { firstName, email, password } = data
-    const user = await firebase
-      .auth()
-      .createUserWithEmailAndPassword(email, password)
-    if (user) {
-      alert(`Thanks ${firstName} . SignUp success`)
-    }
+    // const { firstName, email, password } = data
+    dispatch(startSignUP(data))
+    // const user = await firebase
+    //   .auth()
+    //   .createUserWithEmailAndPassword(email, password)
+    // if (user) {
+    //   alert(`Thanks ${firstName} . SignUp success`)
+    // }
   }
+  console.log(userErr)
 
   return (
     <div>
