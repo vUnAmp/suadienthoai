@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React from "react"
 import { Link } from "gatsby"
 import "../layout.scss"
 import Header from "../Header/index_backup"
@@ -9,9 +9,7 @@ const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
   let header
-  useEffect(() => {
-    console.log("rerendering ....")
-  }, [])
+
   if (isRootPath) {
     header = (
       <h1 className="main-heading">

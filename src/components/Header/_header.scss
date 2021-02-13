@@ -202,6 +202,58 @@ header.boxFull {
   overflow-y: auto;
   z-index: 2100 !important;
 }
+.user-modal__inner {
+  max-width: 350px !important;
+  // margin: 0 auto;
+  right: 50%;
+  transform: translateX(50%);
+  top: 100px;
+  background-color: #fff;
+  outline: none;
+  border-radius: 6px;
+  text-align: center;
+
+  @include respond(md) {
+    right: 15vw;
+    transform: unset;
+  }
+  .user-displayname {
+    font-weight: 600;
+  }
+  .user-email {
+    margin-top: -6px;
+    font-weight: 100;
+  }
+  .user-account__details,
+  .user-account__cart,
+  .user-signout {
+    margin: 0;
+    font-size: 18px;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+
+    &:hover {
+      background-color: #f7f8f8;
+    }
+
+    a {
+      color: #343434;
+    }
+  }
+  .user-signout {
+    svg {
+      margin-right: 3rem;
+    }
+    span {
+      position: relative;
+      left: -1.6rem;
+    }
+  }
+}
+
 .page-modal {
   top: 180px;
   left: 50%;

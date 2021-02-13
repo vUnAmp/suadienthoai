@@ -7,6 +7,8 @@ import Image from "gatsby-image"
 
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined"
 import AccountCircleRoundedIcon from "@material-ui/icons/AccountCircleRounded"
+import RateReviewOutlinedIcon from "@material-ui/icons/RateReviewOutlined"
+import ExitToAppOutlinedIcon from "@material-ui/icons/ExitToAppOutlined"
 import { makeStyles } from "@material-ui/core/styles"
 import Modal from "@material-ui/core/Modal"
 
@@ -16,7 +18,7 @@ import useUnmount from "../hooks/useUnMount"
 
 import { useSelector, useDispatch } from "react-redux"
 import Account from "../Account"
-import { checkUserSession } from "../../redux/User/user.actions"
+import { checkUserSession, signOutStart } from "../../redux/User/user.actions"
 
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -69,11 +71,14 @@ const Header = () => {
     }
   `)
   const logo = data?.logo?.childImageSharp?.fixed
-
+  const handleSignOut = () => {
+    dispatch(signOutStart())
+    setOpen(false)
+  }
   useEffect(() => {
-    if (currentUser) setOpen(false)
-    dispatch(checkUserSession())
-  }, [])
+    currentUser ? setOpen(false) : dispatch(checkUserSession())
+    console.log("header rerendewrinsfa")
+  }, [dispatch])
 
   return (
     <header className="boxFull">
@@ -138,23 +143,62 @@ const Header = () => {
               </Link>
             </li>
           </ul>
-          <Modal
-            open={open}
-            onClose={handleClose}
-            aria-labelledby="simple-modal-title"
-            aria-describedby="simple-modal-description"
-            className="account-modal"
-          >
-            <div className={`${classes.paper} page-modal`}>
-              <Account />
-            </div>
-          </Modal>
+          {currentUser ? (
+            <Modal
+              open={open}
+              onClose={handleClose}
+              aria-labelledby="simple-modal-title"
+              aria-describedby="simple-modal-description"
+              className="user-modal"
+            >
+              <div className={`${classes.paper} user-modal__inner`}>
+                <p className="user-displayname">
+                  {" "}
+                  Hi {currentUser.displayName}{" "}
+                </p>
+                <p className="user-email">{currentUser.email} </p>
+                <hr />
+                <p className="user-account__details">
+                  {" "}
+                  <RateReviewOutlinedIcon />
+                  <Link to="/account">Mein Konto</Link>
+                </p>
+                <p className="user-account__cart">
+                  <ShoppingCartOutlinedIcon />
+                  <Link to="/cart">Warenkorb</Link>
+                </p>
+                <p
+                  role="button"
+                  className="user-signout"
+                  onClick={handleSignOut}
+                >
+                  <ExitToAppOutlinedIcon />
+                  <span> Abmelden</span>
+                </p>
+              </div>
+            </Modal>
+          ) : (
+            <Modal
+              open={open}
+              onClose={handleClose}
+              aria-labelledby="simple-modal-title"
+              aria-describedby="simple-modal-description"
+              className="account-modal"
+            >
+              <div className={`${classes.paper} page-modal`}>
+                <Account />
+              </div>
+            </Modal>
+          )}
         </div>
         {isRender && <Menubar isMount={isMount} toggleMenu={toggleMenu} />}
         <div className="boxFlex">
           <div
             className="header-link__account"
-            onClick={currentUser ? () => navigate("/account") : handleOpen}
+            onClick={
+              // currentUser ? () => navigate("/account") :
+              handleOpen
+            }
           >
             <span>
               <AccountCircleRoundedIcon />

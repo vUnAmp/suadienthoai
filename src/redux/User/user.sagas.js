@@ -1,6 +1,6 @@
 import { put, call, takeLatest, all } from "redux-saga/effects"
 import userTypes from "./user.types"
-import { errorSignUp, signInSuccess } from "./user.actions"
+import { errorSignUp, signInSuccess, signOutSuccess } from "./user.actions"
 import { handleUserData, checkUserAuth } from "./user.helpers"
 //  FIREBASE
 
@@ -66,6 +66,15 @@ export function* userSignUp(data) {
       )
   }
 }
+
+export function* userSignOut() {
+  try {
+    yield firebase.auth().signOut()
+    yield put(signOutSuccess())
+  } catch (error) {
+    console.log(error)
+  }
+}
 export function* onSignIn() {
   yield takeLatest(userTypes.SIGN_IN_EMAIL, userSignIn)
 }
@@ -76,6 +85,14 @@ export function* onSignUp() {
 export function* onCheckUserSession() {
   yield takeLatest(userTypes.CHECK_USER_SESSION, checkUserSession)
 }
+export function* onSignOutUser() {
+  yield takeLatest(userTypes.SIGN_OUT_START, userSignOut)
+}
 export default function* userSagas() {
-  yield all([call(onSignUp), call(onSignIn), call(onCheckUserSession)])
+  yield all([
+    call(onSignUp),
+    call(onSignIn),
+    call(onCheckUserSession),
+    call(onSignOutUser),
+  ])
 }

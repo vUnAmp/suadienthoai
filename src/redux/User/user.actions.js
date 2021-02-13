@@ -22,3 +22,11 @@ export const errorSignUp = errMessage => ({
   type: userTypes.SIGN_UP_ERROR,
   payload: errMessage,
 })
+
+export const signOutStart = () => ({
+  type: userTypes.SIGN_OUT_START,
+})
+
+export const signOutSuccess = () => ({
+  type: userTypes.SIGN_OUT_SUCCESS,
+})
