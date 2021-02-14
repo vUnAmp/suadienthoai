@@ -74,6 +74,7 @@ const ListProducts = () => {
                 alt=""
               />
               <CardHeader
+                className="product-subtitle"
                 title={product.node.fields.name}
                 /////   Overriden CSS /////
                 classes={{
