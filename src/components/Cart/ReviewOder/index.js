@@ -47,7 +47,7 @@ const ReviewOder = ({ location }) => {
       </div>`
 
     const templateParams = {
-      message_html: templeHTML(),
+      message_html: templeHTML().split(",").join(""),
       from_name: `PhoneABC GmbH`,
       to_bcc: getSession.customer_details.email,
     }
