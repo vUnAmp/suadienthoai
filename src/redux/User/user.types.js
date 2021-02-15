@@ -9,5 +9,7 @@ const userTypes = {
 
   SIGN_OUT_START: "SIGN_OUT_START",
   SIGN_OUT_SUCCESS: "SIGNOUT_SUCCESS",
+
+  RESET_USER_ERROR: "RESET_USER_ERROR",
 }
 export default userTypes

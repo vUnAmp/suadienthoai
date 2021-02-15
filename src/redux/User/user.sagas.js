@@ -43,6 +43,16 @@ export function* userSignIn(data) {
     yield getSnapshotUserAuth(user)
   } catch (error) {
     console.log(error)
+    // let userErr
+
+    yield put(
+      errorSignUp(
+        error.code === "auth/user-not-found" ||
+          error.code === "auth/wrong-password"
+          ? "Das hat leider nicht funktioniert. Versichern Sie sich, dass Sie die richtige E-Mail-Adresse und das richtige Passwort verwenden."
+          : error.message
+      )
+    )
   }
 }
 
@@ -54,7 +64,7 @@ export function* userSignUp(data) {
       .createUserWithEmailAndPassword(email, password)
     yield getSnapshotUserAuth(user, displayName)
   } catch (error) {
-    console.log(error)
+    // console.log(error)
 
     if (error)
       yield put(

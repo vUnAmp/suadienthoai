@@ -1,18 +1,26 @@
-import React from "react"
+import React, { useEffect } from "react"
 import firebase from "gatsby-plugin-firebase"
 import { useForm } from "react-hook-form"
 import Input from "@material-ui/core/Input"
 
 // Redux
-import { useDispatch } from "react-redux"
-import { signInEmail } from "../../../redux/User/user.actions"
+import { useDispatch, useSelector } from "react-redux"
+import { signInEmail, resetUserError } from "../../../redux/User/user.actions"
 
-const SignIn = ({ handleChange }) => {
+const mapState = ({ user }) => ({
+  userErr: user.userErr,
+})
+
+const SignIn = ({ handleChange, handleRecover }) => {
+  const { userErr } = useSelector(mapState)
   const dispatch = useDispatch()
   const { register, handleSubmit, errors } = useForm()
   const onSubmit = data => {
     dispatch(signInEmail(data))
   }
+  useEffect(() => {
+    dispatch(resetUserError())
+  }, [])
 
   return (
     <div>
@@ -50,6 +58,13 @@ const SignIn = ({ handleChange }) => {
           type="password"
           ref={register({ required: true, minLength: 6 })}
         />
+        <p
+          role="button"
+          onClick={handleRecover}
+          className="form-account__recover-password"
+        >
+          Passwort vergessen?
+        </p>
         {errors.password && (
           <p className="form-account__error">
             Bitte geben Sie Ihr Passwort ein(mindestens 6 Zeichen)
@@ -60,6 +75,7 @@ const SignIn = ({ handleChange }) => {
           className="btn form-submit form-submit__account"
           value="Anmelden"
         />
+        {userErr && <p className="form-account__error">{userErr}</p>}
         <p onClick={handleChange} className="form-account__link">
           Neu bei Repairphone24? <strong>Jetzt Konto anlegen</strong>{" "}
         </p>

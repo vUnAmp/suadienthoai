@@ -30,3 +30,7 @@ export const signOutStart = () => ({
 export const signOutSuccess = () => ({
   type: userTypes.SIGN_OUT_SUCCESS,
 })
+
+export const resetUserError = () => ({
+  type: userTypes.RESET_USER_ERROR,
+})

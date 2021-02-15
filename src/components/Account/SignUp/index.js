@@ -1,9 +1,9 @@
-import React from "react"
+import React, { useEffect } from "react"
 
 import { useForm } from "react-hook-form"
 
 // REDUX
-import { startSignUP } from "../../../redux/User/user.actions"
+import { resetUserError, startSignUP } from "../../../redux/User/user.actions"
 import { useDispatch, useSelector } from "react-redux"
 
 const mapState = ({ user }) => ({
@@ -24,6 +24,9 @@ const SignUp = ({ handleChange }) => {
     //   alert(`Thanks ${firstName} . SignUp success`)
     // }
   }
+  useEffect(() => {
+    dispatch(resetUserError())
+  }, [])
 
   return (
     <div>
