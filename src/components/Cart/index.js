@@ -44,7 +44,8 @@ const Cart = () => {
   const stripeCheckOut = async () => {
     const { sessionId } = await fetchCheckoutSession(
       // Map to  fomart  of STRIPE API https://stripe.com/docs/api/checkout/sessions/create?lang=node
-      cartItems.map(item => ({ price: item.id, quantity: item.quantity }))
+      cartItems.map(item => ({ price: item.id, quantity: item.quantity })),
+      currentUser.email
     )
     const stripe = await getStripe()
     const { error } = await stripe.redirectToCheckout({
@@ -69,7 +70,7 @@ const Cart = () => {
   const handleRemove = product => {
     dispatch(removeCartItem(product))
   }
-
+  console.log(currentUser?.email)
   return (
     <div className="wrap-page cart-page">
       <Container maxWidth="lg">

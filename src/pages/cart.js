@@ -1,11 +1,14 @@
-import React from "react"
+import React, { useEffect } from "react"
+import { navigate } from "gatsby"
 import Cart from "../components/Cart"
 import Contact from "../components/Contact"
 import Layout from "../components/Layout/layout"
 
-const cart = ({ location }) => {
+const CartPage = ({ location }) => {
   const siteTitle = `Cart`
-
+  useEffect(() => {
+    if (location.action !== "PUSH") navigate("/")
+  }, [])
   return (
     <Layout location={location} title={siteTitle}>
       <Cart />
@@ -15,4 +18,4 @@ const cart = ({ location }) => {
   )
 }
 
-export default cart
+export default CartPage
