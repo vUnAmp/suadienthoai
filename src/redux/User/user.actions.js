@@ -34,3 +34,7 @@ export const signOutSuccess = () => ({
 export const resetUserError = () => ({
   type: userTypes.RESET_USER_ERROR,
 })
+
+export const toggleAccountModal = () => ({
+  type: userTypes.TOGGLE_ACCOUNT_MODAL,
+})

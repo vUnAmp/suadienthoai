@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import Layout from "../components/Layout/layout"
-import { Link } from "gatsby"
+import { Link, navigate } from "gatsby"
 import Img from "gatsby-image"
 // import StoreLayout from "../components/StoreLayout"
 // import ProductPage from "../components/ProductPage"
@@ -38,9 +38,7 @@ const ItemTemplate = ({ pageContext: { id, slug }, location }) => {
   const addToCart = () => {
     dispatch(addCartItem({ ...product.node, price }))
   }
-  const handleCheckOut = () => {
-    console.log("Going to checkout ...")
-  }
+
   const settings = {
     dots: true,
     infinite: true,
@@ -91,11 +89,16 @@ const ItemTemplate = ({ pageContext: { id, slug }, location }) => {
                   </span>
                   In den Warenkorb
                 </button>
-                <button className="btn btn-checkout" onClick={handleCheckOut}>
+                <button
+                  className="btn btn-checkout"
+                  onClick={() => {
+                    navigate("/cart")
+                  }}
+                >
                   <span className="btn-icon">
                     <LocalPrintshopOutlinedIcon />
                   </span>{" "}
-                  Sofort-Kaufen
+                  Zum Warenkorb
                 </button>
                 <div className="product-details__info">
                   <div className="product-details__info--ship">

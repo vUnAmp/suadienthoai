@@ -64,7 +64,10 @@ const ReviewOder = ({ location }) => {
           // TODO something ...
           dispatch(clearCart())
 
-          dispatch(checkCheckoutSession(sessionId))
+          // AFTER 2mins ..!redirect user to Home !
+          setTimeout(() => {
+            dispatch(checkCheckoutSession(sessionId))
+          }, 1200000)
         },
         error => {
           console.log(error.text)
@@ -77,16 +80,18 @@ const ReviewOder = ({ location }) => {
     )
       .then(res => res.json())
       .catch(err => {
+        // console.log("error")
         navigate("/")
       })
     if (getSession) {
+      console.log(getSession)
       setSession(getSession)
       sendEmail(getSession)
     }
   }
   useEffect(() => {
     fetchSession()
-  }, [sessionId])
+  }, [])
 
   return (
     <div className="wrap-page success-page">

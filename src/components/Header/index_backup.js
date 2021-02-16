@@ -34,6 +34,7 @@ const useStyles = makeStyles(theme => ({
 const mapState = ({ cartData, user }) => ({
   cartItems: cartData.cartItems,
   currentUser: user.currentUser,
+  toggleAccount: user.toggleAccount,
 })
 
 const Header = () => {
@@ -56,7 +57,7 @@ const Header = () => {
     setIsMount(!isMount)
   }
   const isRender = useUnmount(isMount, 350)
-  const { cartItems, currentUser } = useSelector(mapState)
+  const { cartItems, currentUser, toggleAccount } = useSelector(mapState)
   const dispatch = useDispatch()
   let count = cartItems.reduce((a, b) => a + b.quantity, 0)
   const data = useStaticQuery(graphql`
@@ -75,6 +76,12 @@ const Header = () => {
     dispatch(signOutStart())
     setOpen(false)
   }
+  useEffect(() => {
+    if (toggleAccount) {
+      setOpen(true)
+    }
+  }, [toggleAccount])
+
   useEffect(() => {
     currentUser ? setOpen(false) : dispatch(checkUserSession())
     console.log("header rerendewrinsfa")

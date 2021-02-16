@@ -11,5 +11,7 @@ const userTypes = {
   SIGN_OUT_SUCCESS: "SIGNOUT_SUCCESS",
 
   RESET_USER_ERROR: "RESET_USER_ERROR",
+
+  TOGGLE_ACCOUNT_MODAL: "TOGGLE_ACCOUNT_MODAL",
 }
 export default userTypes

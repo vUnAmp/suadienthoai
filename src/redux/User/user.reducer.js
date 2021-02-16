@@ -3,6 +3,7 @@ import userTypes from "./user.types"
 const INITIAL_STATE = {
   currentUser: null,
   userErr: "",
+  toggleAccount: false,
 }
 
 const userReducer = (state = INITIAL_STATE, action) => {
@@ -27,6 +28,11 @@ const userReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         userErr: "",
+      }
+    case userTypes.TOGGLE_ACCOUNT_MODAL:
+      return {
+        ...state,
+        toggleAccount: !state.toggleAccount,
       }
     default:
       return state

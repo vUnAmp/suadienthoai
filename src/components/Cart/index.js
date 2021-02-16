@@ -12,6 +12,8 @@ import {
   removeCartItem,
   reduceCartItem,
 } from "../../redux/Cart/cart.actions"
+
+import { toggleAccountModal } from "../../redux/User/user.actions"
 // Hook
 import useGatsbyStripeData from "../hooks/useGatsbyStripeData"
 // Material UI
@@ -25,19 +27,21 @@ import RelateProduct from "../Products/RelateProduct"
 import fetchCheckoutSession from "../../stripe/fetchCheckoutSession"
 import getStripe from "../../stripe/utils"
 
-const mapState = ({ cartData }) => ({
+const mapState = ({ cartData, user }) => ({
   cartItems: cartData.cartItems,
+  currentUser: user.currentUser,
 })
 
 const Cart = () => {
-  const { cartItems } = useSelector(mapState)
+  const { cartItems, currentUser } = useSelector(mapState)
   const dispatch = useDispatch()
   const data = useGatsbyStripeData()
   const sumQty = cartItems.reduce((acc, curItem) => acc + curItem.quantity, 0)
   const sumMoney = cartItems
     .reduce((acc, curItem) => acc + curItem.quantity * curItem.price, 0)
     .toFixed(2)
-  const handleCheckout = async () => {
+
+  const stripeCheckOut = async () => {
     const { sessionId } = await fetchCheckoutSession(
       // Map to  fomart  of STRIPE API https://stripe.com/docs/api/checkout/sessions/create?lang=node
       cartItems.map(item => ({ price: item.id, quantity: item.quantity }))
@@ -47,6 +51,15 @@ const Cart = () => {
       sessionId,
     })
   }
+
+  const handleCheckout = () => {
+    if (currentUser) {
+      stripeCheckOut()
+    } else {
+      dispatch(toggleAccountModal())
+    }
+  }
+
   const handlePlus = product => {
     dispatch(addCartItem(product))
   }
