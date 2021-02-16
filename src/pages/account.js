@@ -4,6 +4,7 @@ import Layout from "../components/Layout/layout"
 import SEO from "../components/seo"
 
 import firebase from "gatsby-plugin-firebase"
+import OderHistory from "../components/Account/OderHistory"
 
 const Account = ({ data, location }) => {
   const siteTitle = "Account details"
@@ -15,14 +16,7 @@ const Account = ({ data, location }) => {
     <Layout location={location} title={siteTitle}>
       <SEO title="Account Details" />
       <div className="wrap-page">
-        <h1>Hello from Account details</h1>
-        <button
-          onClick={() => {
-            firebase.auth().signOut()
-          }}
-        >
-          Log out
-        </button>
+        <OderHistory />
       </div>
     </Layout>
   )

@@ -4,7 +4,7 @@ const redirectUrl = "http://localhost:8888"
 const handler = async event => {
   try {
     console.log(JSON.parse(event.body))
-    const { line_items, email } = JSON.parse(event.body)
+    const { line_items, email, customerId } = JSON.parse(event.body)
     const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY)
     // console.log(JSON.parse(event.body));
     const session = await stripe.checkout.sessions.create({
@@ -12,7 +12,8 @@ const handler = async event => {
       cancel_url: redirectUrl,
       payment_method_types: ["card"],
       line_items: [...line_items],
-      customer_email: email,
+      customer: customerId,
+      // customer_email: email,
       mode: "payment",
       // Address Shipping required
       billing_address_collection: "auto",

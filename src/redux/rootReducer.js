@@ -15,7 +15,7 @@ const rootReducer = combineReducers({
 const configStorage = {
   key: "__gatsby",
   storage,
-  whitelist: ["cartData"],
+  whitelist: ["cartData", "user"],
 }
 
 export default persistReducer(configStorage, rootReducer)

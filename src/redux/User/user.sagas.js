@@ -1,7 +1,11 @@
 import { put, call, takeLatest, all } from "redux-saga/effects"
 import userTypes from "./user.types"
 import { errorSignUp, signInSuccess, signOutSuccess } from "./user.actions"
-import { handleUserData, checkUserAuth } from "./user.helpers"
+import {
+  handleUserData,
+  checkUserAuth,
+  handleShoppingData,
+} from "./user.helpers"
 //  FIREBASE
 
 import firebase from "gatsby-plugin-firebase"
@@ -85,6 +89,13 @@ export function* userSignOut() {
     console.log(error)
   }
 }
+
+export function* userUpdateShoppingItem(data) {
+  console.log(data)
+  const { currentUser, cartItems } = data.payload
+  yield call(handleShoppingData, { currentUser, cartItems })
+}
+
 export function* onSignIn() {
   yield takeLatest(userTypes.SIGN_IN_EMAIL, userSignIn)
 }
@@ -98,11 +109,16 @@ export function* onCheckUserSession() {
 export function* onSignOutUser() {
   yield takeLatest(userTypes.SIGN_OUT_START, userSignOut)
 }
+
+export function* onUpdateShoppingItem() {
+  yield takeLatest(userTypes.UPDATE_SHOPPING_ITEM, userUpdateShoppingItem)
+}
 export default function* userSagas() {
   yield all([
     call(onSignUp),
     call(onSignIn),
     call(onCheckUserSession),
     call(onSignOutUser),
+    call(onUpdateShoppingItem),
   ])
 }

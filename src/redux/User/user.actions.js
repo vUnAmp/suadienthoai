@@ -38,3 +38,8 @@ export const resetUserError = () => ({
 export const toggleAccountModal = () => ({
   type: userTypes.TOGGLE_ACCOUNT_MODAL,
 })
+
+export const updateShoppingItem = items => ({
+  type: userTypes.UPDATE_SHOPPING_ITEM,
+  payload: items,
+})

@@ -11,17 +11,19 @@ import {
 
 // EmailJS
 import emailjs, { init } from "emailjs-com"
+import { updateShoppingItem } from "../../../redux/User/user.actions"
 
 init("user_pjN71AkA6f8IUCEG6ohxc")
 
-const mapState = ({ cartData }) => ({
+const mapState = ({ cartData, user }) => ({
   cartItems: cartData.cartItems,
+  currentUser: user.currentUser,
 })
 
 const ReviewOder = ({ location }) => {
   const [session, setSession] = useState({})
   const dispatch = useDispatch()
-  const { cartItems } = useSelector(mapState)
+  const { cartItems, currentUser } = useSelector(mapState)
 
   const oderSuccessItems = [...cartItems]
   const sumPay = oderSuccessItems
@@ -61,13 +63,14 @@ const ReviewOder = ({ location }) => {
       )
       .then(
         result => {
+          dispatch(updateShoppingItem({ currentUser, cartItems }))
           // TODO something ...
           dispatch(clearCart())
 
           // AFTER 2mins ..!redirect user to Home !
           setTimeout(() => {
             dispatch(checkCheckoutSession(sessionId))
-          }, 1200000)
+          }, 120000)
         },
         error => {
           console.log(error.text)
@@ -79,6 +82,7 @@ const ReviewOder = ({ location }) => {
       "/.netlify/functions/checkout-session?sessionId=" + sessionId
     )
       .then(res => res.json())
+
       .catch(err => {
         // console.log("error")
         navigate("/")
