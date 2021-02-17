@@ -17,7 +17,11 @@ const Success = ({ location }) => {
   const dispatch = useDispatch()
   const siteTitle = `Success checkout`
   useEffect(() => {
-    tempSessionId === sessionId ? navigate("/") : setCheckSession(true)
+    if (tempSessionId === sessionId) {
+      navigate("/")
+    } else {
+      setCheckSession(true)
+    }
   }, [tempSessionId, sessionId])
   return (
     <Layout location={location} title={siteTitle}>

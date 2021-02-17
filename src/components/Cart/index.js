@@ -49,7 +49,8 @@ const Cart = () => {
       currentUser.customerId
     )
     const stripe = await getStripe()
-    const { error } = await stripe.redirectToCheckout({
+    console.log(sessionId)
+    await stripe.redirectToCheckout({
       sessionId,
     })
   }
