@@ -34,7 +34,7 @@ const ItemTemplate = ({ pageContext: { id, slug }, location }) => {
   const data = useGatsbyStripeData()
   const product = data.find(item => item.node.product.id === id)
   const price = (product.node.unit_amount / 100).toFixed(2)
-  const title = product.node.fields.name.slice(0, 25)
+  const title = product.node.fields.name.slice(0, 18)
   const countRef = useRef(null)
 
   const addToCart = () => {
@@ -63,7 +63,7 @@ const ItemTemplate = ({ pageContext: { id, slug }, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <div className="slide-item">
-        <h5 className="slide-item__title"> {title}... </h5>
+        <h5 className="slide-item__title"> {title}...zu Korb </h5>
       </div>
 
       <Container className="product-details" maxWidth="lg">
