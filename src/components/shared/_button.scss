@@ -7,14 +7,20 @@
   margin-bottom: 1rem;
   cursor: pointer;
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  transition: all 400ms ease-in-out;
   @include respond(md) {
     padding: 1rem 2rem;
   }
+  z-index: 2;
+
+  background-color: rgba($color: #fff, $alpha: 0);
+  box-shadow: inset 2px 1em 3em 0em rgb(243, 232, 232);
 }
 .btn-shadown {
   box-shadow: 6px 6px 0 0 #ffde00;
 }
 .btn-bg {
+  background-color: rgba($color: #fff, $alpha: 0);
   background-color: $btn-color;
   color: white;
 }
@@ -28,4 +34,9 @@
     // color: #222;
   }
   // display: none;
+}
+// HOVER
+.btn-raise:hover {
+  box-shadow: 0 0.5em 0.5em -0.4em white;
+  transform: translateY(-0.35em);
 }

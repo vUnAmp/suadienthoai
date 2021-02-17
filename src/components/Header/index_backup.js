@@ -123,29 +123,29 @@ const Header = () => {
         <div className="header-desktopNav">
           <ul className="header-navlink__items boxFlex">
             <li>
-              <Link to="/">
+              <Link to="/" activeClassName="active-header">
                 <span className="header-link__item">Home</span>
               </Link>
             </li>
             <li>
-              <Link to="/about">
+              <Link to="/about" activeClassName="active-header">
                 <span className="header-link__item">About</span>
               </Link>
             </li>
             <li>
-              <Link to="/services">
+              <Link to="/services" activeClassName="active-header">
                 <span className="header-link__item">Services</span>
               </Link>
             </li>
 
             <li>
-              <Link to="/">
+              <Link to="/termin" activeClassName="active-header">
                 <span className="header-link__item">Termin</span>
               </Link>
             </li>
 
             <li>
-              <Link to="/shop">
+              <Link to="/shop" activeClassName="active-header">
                 <span className="header-link__item">Shop</span>
               </Link>
             </li>

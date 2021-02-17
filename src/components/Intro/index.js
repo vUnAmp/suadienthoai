@@ -18,12 +18,15 @@ const Intro = () => {
               </p>
               <div className="boxFlex cta-btn">
                 <button
-                  className="btn btn-bg"
+                  className="btn btn-bg btn-raise"
                   onClick={() => navigate("/services")}
                 >
                   Services
                 </button>
-                <button className="btn" onClick={() => navigate("/shop")}>
+                <button
+                  className="btn btn-raise"
+                  onClick={() => navigate("/shop")}
+                >
                   Zubehör Shop{" "}
                 </button>
               </div>

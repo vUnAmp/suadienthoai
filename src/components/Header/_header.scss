@@ -167,6 +167,12 @@ header.boxFull {
         //   color: $white-color;
         // }
       }
+      li:hover {
+        // background-color: #fff;
+        a {
+          color: deeppink;
+        }
+      }
     }
   }
   .shop-cart {
@@ -262,6 +268,11 @@ header.boxFull {
   .header-account__nav .MuiTabs-flexContainer {
     justify-content: center;
   }
+}
+.active-header {
+  background-color: #fff;
+
+  color: deeppink !important;
 }
 
 @-webkit-keyframes fadeIn {
