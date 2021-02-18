@@ -43,3 +43,10 @@ export const updateShoppingItem = items => ({
   type: userTypes.UPDATE_SHOPPING_ITEM,
   payload: items,
 })
+
+export const userLoadingStart = () => ({
+  type: userTypes.USER_LOADING_START,
+})
+export const userLoadingDone = () => ({
+  type: userTypes.USER_LOADING_DONE,
+})

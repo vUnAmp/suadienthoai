@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import PropTypes from "prop-types"
 import Layout from "../components/Layout/layout"
 import { Link, navigate } from "gatsby"
@@ -32,17 +32,23 @@ const ItemTemplate = ({ pageContext: { id, slug }, location }) => {
   const dispatch = useDispatch()
   const siteTitle = { slug }
   const data = useGatsbyStripeData()
+  const [activeSlide, setActiveSlide] = useState("")
   const product = data.find(item => item.node.product.id === id)
   const price = (product.node.unit_amount / 100).toFixed(2)
   const title = product.node.fields.name.slice(0, 18)
   const countRef = useRef(null)
 
   const addToCart = () => {
-    const slide = document.querySelector(".slide-item")
-    slide.style.display = "block"
-    countRef.current = setTimeout(() => {
-      slide.style.display = "none"
-    }, 1100)
+    // const slide = document.querySelector(".slide-item")
+    // slide.style.display = "block"
+    // countRef.current = setTimeout(() => {
+    //   slide.style.display = "none"
+    // }, 3100)
+
+    setActiveSlide("slide-active")
+    setTimeout(() => {
+      setActiveSlide("")
+    }, 2100)
 
     dispatch(addCartItem({ ...product.node, price }))
   }
@@ -62,7 +68,7 @@ const ItemTemplate = ({ pageContext: { id, slug }, location }) => {
   }
   return (
     <Layout location={location} title={siteTitle}>
-      <div className="slide-item">
+      <div className={`slide-item ${activeSlide}`}>
         <h5 className="slide-item__title"> {title}...zu Korb </h5>
       </div>
 

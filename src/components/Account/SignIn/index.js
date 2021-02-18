@@ -5,7 +5,11 @@ import Input from "@material-ui/core/Input"
 
 // Redux
 import { useDispatch, useSelector } from "react-redux"
-import { signInEmail, resetUserError } from "../../../redux/User/user.actions"
+import {
+  signInEmail,
+  resetUserError,
+  userLoadingStart,
+} from "../../../redux/User/user.actions"
 
 const mapState = ({ user }) => ({
   userErr: user.userErr,
@@ -16,6 +20,7 @@ const SignIn = ({ handleChange, handleRecover }) => {
   const dispatch = useDispatch()
   const { register, handleSubmit, errors } = useForm()
   const onSubmit = data => {
+    dispatch(userLoadingStart())
     dispatch(signInEmail(data))
   }
   useEffect(() => {

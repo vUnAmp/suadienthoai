@@ -82,10 +82,8 @@
   right: -220px;
   background-color: #4bb543;
   // transform: translateX(-100%);
-
-  -webkit-animation: fadeInOut 1s;
-
-  animation: fadeInOut 1s;
+  -webkit-animation: fadeInOut 2s;
+  animation: fadeInOut 2s;
   &__title {
     color: white;
   }
@@ -96,7 +94,11 @@
     transform: translateX(0%);
     opacity: 0;
   }
-  50% {
+  12% {
+    transform: translateX(-100%);
+    opacity: 1;
+  }
+  95% {
     transform: translateX(-100%);
     opacity: 1;
   }
@@ -111,7 +113,11 @@
     transform: translateX(0%);
     opacity: 0;
   }
-  50% {
+  12% {
+    transform: translateX(-100%);
+    opacity: 1;
+  }
+  75% {
     transform: translateX(-100%);
     opacity: 1;
   }
@@ -119,4 +125,8 @@
     transform: translateX(0%);
     opacity: 0;
   }
+}
+.slide-active {
+  // right: 0;
+  display: block;
 }

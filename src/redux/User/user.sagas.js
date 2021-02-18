@@ -1,6 +1,11 @@
 import { put, call, takeLatest, all } from "redux-saga/effects"
 import userTypes from "./user.types"
-import { errorSignUp, signInSuccess, signOutSuccess } from "./user.actions"
+import {
+  errorSignUp,
+  signInSuccess,
+  signOutSuccess,
+  userLoadingDone,
+} from "./user.actions"
 import {
   handleUserData,
   checkUserAuth,
@@ -20,6 +25,7 @@ export function* getSnapshotUserAuth(user, displayName) {
         ...snapshot.data(),
       })
     )
+    yield put(userLoadingDone())
   } catch (error) {
     console.log(error)
   }

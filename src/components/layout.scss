@@ -55,6 +55,7 @@
   box-sizing: border-box;
   margin-left: auto;
   margin-right: auto;
+  overflow: hidden;
 }
 .product-subtitle {
   span {
@@ -70,5 +71,47 @@
     margin-top: 5px;
     line-height: 20px;
     color: #333;
+  }
+}
+.loading {
+  // display: none;
+  position: fixed;
+  top: 0;
+  // right: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  background-color: rgba($color: #000000, $alpha: 0.4);
+
+  &-icon {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+
+    svg {
+      fill: $btn-color;
+      font-size: 3.5rem;
+    }
+  }
+}
+@-webkit-keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }

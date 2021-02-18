@@ -4,6 +4,7 @@ import "../layout.scss"
 import Header from "../Header/index_backup"
 
 import Footer from "../Footer"
+import Loading from "../Loading"
 
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
@@ -26,6 +27,7 @@ const Layout = ({ location, title, children }) => {
 
   return (
     <div className="wrap-site" data-is-root-path={isRootPath}>
+      <Loading />
       <Header />
       {/* <header className="global-header">{header}</header> */}
       <main>{children}</main>

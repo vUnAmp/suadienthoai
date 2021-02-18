@@ -4,6 +4,7 @@ const INITIAL_STATE = {
   currentUser: null,
   userErr: "",
   toggleAccount: false,
+  loading: false,
 }
 
 const userReducer = (state = INITIAL_STATE, action) => {
@@ -33,6 +34,17 @@ const userReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         toggleAccount: !state.toggleAccount,
+      }
+    case userTypes.USER_LOADING_START:
+      return {
+        ...state,
+        loading: true,
+      }
+
+    case userTypes.USER_LOADING_DONE:
+      return {
+        ...state,
+        loading: false,
       }
     default:
       return state

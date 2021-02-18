@@ -3,7 +3,11 @@ import React, { useEffect } from "react"
 import { useForm } from "react-hook-form"
 
 // REDUX
-import { resetUserError, startSignUP } from "../../../redux/User/user.actions"
+import {
+  resetUserError,
+  startSignUP,
+  userLoadingStart,
+} from "../../../redux/User/user.actions"
 import { useDispatch, useSelector } from "react-redux"
 
 const mapState = ({ user }) => ({
@@ -15,6 +19,7 @@ const SignUp = ({ handleChange }) => {
   const { userErr } = useSelector(mapState)
   const { register, handleSubmit, errors } = useForm()
   const onSubmit = data => {
+    dispatch(userLoadingStart())
     // const { firstName, email, password } = data
     dispatch(startSignUP(data))
     // const user = await firebase
