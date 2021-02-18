@@ -63,6 +63,7 @@ export function* userSignIn(data) {
           : error.message
       )
     )
+    yield put(userLoadingDone())
   }
 }
 
@@ -84,6 +85,7 @@ export function* userSignUp(data) {
             : error.message
         )
       )
+    yield put(userLoadingDone())
   }
 }
 
