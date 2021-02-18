@@ -100,6 +100,7 @@ export function* userUpdateShoppingItem(data) {
   console.log(data)
   const { currentUser, cartItems } = data.payload
   yield call(handleShoppingData, { currentUser, cartItems })
+  yield getSnapshotUserAuth({ uid: currentUser.id })
 }
 
 export function* onSignIn() {

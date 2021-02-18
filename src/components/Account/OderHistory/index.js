@@ -14,38 +14,46 @@ const mapState = ({ cartData, user }) => ({
 const OderHistory = () => {
   const { currentUser } = useSelector(mapState)
   const data = useGatsbyStripe()
-  console.log(currentUser)
+  console.log(new Set(currentUser?.shoppingItems))
   return (
     <Container>
       <h3>History of your Oders !!!!</h3>
-      {currentUser?.shoppingItems?.map((item, index) => {
-        return (
-          <div key={index} className="line-items">
-            <div className="line-items__left">
-              <div
-                className="checkout-img-box"
-                onClick={() => {
-                  // navigate(`/product/${item.fields.slug}`)
-                  window.open(`/product/${item.fields.slug}`)
-                }}
-              >
-                <Img fluid={item.product.localFiles[0].childImageSharp.fluid} />
-              </div>
-              <div className="checkout-des">
-                <p
-                  className="checkout-des__name cart-small-text subtitle"
+      {[...new Set(currentUser?.shoppingItems)]
+        .reduce(
+          (acc, cur) =>
+            acc.map(item => item.id).includes(cur.id) ? acc : [...acc, cur],
+          []
+        )
+        .map((item, index) => {
+          return (
+            <div key={index} className="line-items">
+              <div className="line-items__left">
+                <div
+                  className="checkout-img-box"
                   onClick={() => {
                     // navigate(`/product/${item.fields.slug}`)
                     window.open(`/product/${item.fields.slug}`)
                   }}
                 >
-                  {item.fields.name}
-                </p>
+                  <Img
+                    fluid={item.product.localFiles[0].childImageSharp.fluid}
+                  />
+                </div>
+                <div className="checkout-des">
+                  <p
+                    className="checkout-des__name cart-small-text subtitle"
+                    onClick={() => {
+                      // navigate(`/product/${item.fields.slug}`)
+                      window.open(`/product/${item.fields.slug}`)
+                    }}
+                  >
+                    {item.fields.name}
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-        )
-      })}
+          )
+        })}
       {currentUser?.shoppingItems?.length === 0 && (
         <p>Your Shopping List is empty.</p>
       )}

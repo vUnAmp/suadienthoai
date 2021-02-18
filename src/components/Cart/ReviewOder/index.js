@@ -63,7 +63,6 @@ const ReviewOder = ({ location }) => {
       )
       .then(
         result => {
-          dispatch(updateShoppingItem({ currentUser, cartItems }))
           // TODO something ...
           dispatch(clearCart())
 
@@ -95,6 +94,7 @@ const ReviewOder = ({ location }) => {
   }
   useEffect(() => {
     fetchSession()
+    dispatch(updateShoppingItem({ currentUser, cartItems }))
   }, [])
 
   return (

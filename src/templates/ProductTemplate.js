@@ -44,20 +44,21 @@ const ItemTemplate = ({ pageContext: { id, slug }, location }) => {
     // countRef.current = setTimeout(() => {
     //   slide.style.display = "none"
     // }, 3100)
-
+    dispatch(addCartItem({ ...product.node, price }))
     setActiveSlide("slide-active")
+
     setTimeout(() => {
       setActiveSlide("")
     }, 2100)
-
-    dispatch(addCartItem({ ...product.node, price }))
   }
+
   // useEffect(() => {
-  //   console.log(countRef.current)
+
   //   return () => {
   //     clearTimeout(countRef.current)
   //   }
   // }, [countRef.current])
+  // console.log(countRef.current)
   const settings = {
     dots: true,
     infinite: true,

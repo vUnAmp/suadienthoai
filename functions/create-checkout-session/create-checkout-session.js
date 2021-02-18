@@ -1,5 +1,5 @@
-// const redirectUrl = "http://localhost:8888"
-const redirectUrl = "https://repairphone24.de"
+const redirectUrl = "http://localhost:8888"
+// const redirectUrl = "https://repairphone24.de"
 const handler = async event => {
   try {
     console.log(JSON.parse(event.body))
