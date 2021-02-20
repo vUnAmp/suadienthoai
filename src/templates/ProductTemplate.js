@@ -23,8 +23,12 @@ import "slick-carousel/slick/slick-theme.css"
 
 // REDUX
 
-import { addCartItem } from "../redux/Cart/cart.actions"
 import { useDispatch } from "react-redux"
+import { addCartItem } from "../redux/Cart/cart.actions"
+
+import { userLoadingStart, userLoadingDone } from "../redux/User/user.actions"
+
+// Loading ...
 
 const ItemTemplate = ({ pageContext: { id, slug }, location }) => {
   // const data = useStaticQuery(GatsbyStripeData)
@@ -44,12 +48,14 @@ const ItemTemplate = ({ pageContext: { id, slug }, location }) => {
     // countRef.current = setTimeout(() => {
     //   slide.style.display = "none"
     // }, 3100)
+    dispatch(userLoadingStart())
     dispatch(addCartItem({ ...product.node, price }))
     setActiveSlide("slide-active")
 
     setTimeout(() => {
       setActiveSlide("")
-    }, 2100)
+      dispatch(userLoadingDone())
+    }, 1000)
   }
 
   // useEffect(() => {

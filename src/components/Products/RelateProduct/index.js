@@ -78,6 +78,10 @@ const RelateProduct = ({ data }) => {
     slidesToScroll: 1,
     arrows: true,
   }
+  // Need resize  eventlistener TODO !!!!
+  // window.addEventListener("resize", () => {
+  //   console.log("hello")
+  // })
   useEffect(() => {
     countItems = window.innerWidth > 600 ? 6 : 3
     for (let i = 0; i < n; i += countItems) {
@@ -85,6 +89,8 @@ const RelateProduct = ({ data }) => {
     }
     setRenderData(newData)
     setCount(countItems)
+
+    return () => {}
   }, [count])
   return (
     <div className={classes.relatedWrap}>
