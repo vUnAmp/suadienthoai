@@ -3,8 +3,10 @@ import React from "react"
 import LocalIcon from "../../Icons/Local"
 import TimeOpenIcon from "../../Icons/Timeopen"
 import ContactIncon from "../../Icons/Contact"
+import useGatsbyStripeData from "../hooks/useGatsbyStripeData"
 
 const Contact = () => {
+  const data = useGatsbyStripeData()
   return (
     <div className="boxFull contact">
       <div className="box boxFlex">

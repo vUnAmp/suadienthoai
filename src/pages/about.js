@@ -3,12 +3,19 @@ import AboutUs from "../components/About"
 import Layout from "../components/Layout/layout"
 import SEO from "../components/seo"
 
-const About = ({ data, location }) => {
+import RelateProduct from "../components/Products/RelateProduct"
+import useGatsbyStripeData from "../components/hooks/useGatsbyStripeData"
+
+const About = ({ location }) => {
   const siteTitle = "ÜBER UNS"
+  const data = useGatsbyStripeData()
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="ÜBER UNS" />
-      <AboutUs />
+      <AboutUs location={location} />
+      <div className="product-related wrap-page">
+        <RelateProduct data={data} />
+      </div>
     </Layout>
   )
 }

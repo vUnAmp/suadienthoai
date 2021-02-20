@@ -4,10 +4,10 @@ import Img from "gatsby-image"
 import { useStaticQuery, graphql } from "gatsby"
 import RelateProduct from "../Products/RelateProduct"
 import useGatsbyStripeData from "../hooks/useGatsbyStripeData"
-const AboutUs = () => {
-  const data = useGatsbyStripeData()
+const AboutUs = ({ location }) => {
   const img = useStaticQuery(bgImg)
-  console.log(img)
+  const data = useGatsbyStripeData()
+  console.log(location)
   return (
     <Grid container className="wrap-page about-page">
       <Grid item xs={6} className="about-page__wrap">
@@ -40,9 +40,11 @@ const AboutUs = () => {
             </p>
           </div>
         </Grid>
-        <div className="product-related">
-          <RelateProduct data={data} />
-        </div>
+        {location.pathname === "/about/" && (
+          <div className="product-related">
+            <RelateProduct data={data} />
+          </div>
+        )}
       </Container>
     </Grid>
   )

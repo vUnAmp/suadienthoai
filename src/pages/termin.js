@@ -1,21 +1,19 @@
 import React from "react"
-import AboutUs from "../components/About"
 import Layout from "../components/Layout/layout"
-import RelateProduct from "../components/Products/RelateProduct"
-import Services from "../components/Services"
 
-import useGatsbyStripeData from "../components/hooks/useGatsbyStripeData"
 import SEO from "../components/seo"
 import Intro from "../components/Intro"
+import RelateProduct from "../components/Products/RelateProduct"
+import useGatsbyStripeData from "../components/hooks/useGatsbyStripeData"
 
 const Termin = ({ location }) => {
-  const data = useGatsbyStripeData()
   const siteTitle = "ÜBER UNS"
+  const data = useGatsbyStripeData()
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="Schnelle Reparatur" />
-      <Intro />
-      <div className="product-related">
+      <Intro location={location} />
+      <div className="product-related wrap-page">
         <RelateProduct data={data} />
       </div>
     </Layout>

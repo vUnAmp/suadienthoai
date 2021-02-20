@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState, useRef } from "react"
 // import useGatsbyStripeData from "../../hooks/useGatsbyStripeData"
 
 // Gatsby
@@ -54,6 +54,7 @@ const useStyles = makeStyles(theme => ({
     paddingBottom: "1rem",
     marginTop: "2rem",
     marginBottom: "1rem",
+    backgroundColor: "#fff",
   },
   title: {
     paddingLeft: "1rem",
@@ -65,6 +66,7 @@ const useStyles = makeStyles(theme => ({
 const RelateProduct = ({ data }) => {
   const [count, setCount] = useState(3)
   const [renderData, setRenderData] = useState([])
+  const windowRef = useRef()
   const classes = useStyles()
   const n = data.length
   let newData = []
@@ -82,16 +84,34 @@ const RelateProduct = ({ data }) => {
   // window.addEventListener("resize", () => {
   //   console.log("hello")
   // })
-  useEffect(() => {
+  const checkSize = () => {
     countItems = window.innerWidth > 600 ? 6 : 3
     for (let i = 0; i < n; i += countItems) {
       newData = [...newData, data.slice(i, i + countItems)]
     }
     setRenderData(newData)
     setCount(countItems)
+  }
 
-    return () => {}
-  }, [count])
+  useEffect(() => {
+    checkSize()
+  }, [])
+
+  // useEffect(() => {
+  //   console.log(windowRef.current)
+  //   if (windowRef.current) {
+  //     clearTimeout(windowRef.current)
+  //   }
+
+  //   windowRef.current = setTimeout(() => {
+  //     window.addEventListener("resize", checkSize)
+  //   }, 2000)
+
+  //   return () => {
+  //     window.removeEventListener("resize", checkSize)
+  //   }
+  // })
+
   return (
     <div className={classes.relatedWrap}>
       <p className={classes.title}>Das könnte dir gefallen</p>

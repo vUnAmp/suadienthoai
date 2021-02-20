@@ -1,8 +1,12 @@
 import { navigate } from "gatsby"
 import React from "react"
 import Termin from "../Termin"
+import useGatsbyStripeData from "../hooks/useGatsbyStripeData"
+import RelateProduct from "../Products/RelateProduct"
 
 const Intro = () => {
+  const data = useGatsbyStripeData()
+
   return (
     <div className="boxFull intro">
       <div className="boxFull intro-wrap">

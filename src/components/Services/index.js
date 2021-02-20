@@ -4,8 +4,11 @@ import ServiceIcon from "../../Icons/Service"
 import TerminIcon from "../../Icons/Termin"
 import ShippedIcon from "../../Icons/Shipped"
 import DataIcon from "../../Icons/DatabaseStorage"
+import useGatsbyStripeData from "../hooks/useGatsbyStripeData"
+import RelateProduct from "../Products/RelateProduct"
 
 const Services = () => {
+  const data = useGatsbyStripeData()
   return (
     <div className="boxFull services wrap-page">
       <div className="box services-wrap">

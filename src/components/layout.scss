@@ -56,6 +56,14 @@
   margin-left: auto;
   margin-right: auto;
   overflow: hidden;
+  button.slick-prev {
+    left: 0;
+    z-index: 2020;
+  }
+  button.slick-next {
+    right: 0;
+    z-index: 2020;
+  }
 }
 .product-subtitle {
   span {
@@ -98,6 +106,10 @@
       font-size: 3.5rem;
     }
   }
+}
+
+.product-related {
+  padding-top: 0;
 }
 @-webkit-keyframes spin {
   0% {
