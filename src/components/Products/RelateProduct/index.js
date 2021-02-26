@@ -91,27 +91,29 @@ const RelateProduct = ({ data }) => {
     }
     setRenderData(newData)
     setCount(countItems)
+    console.log("resizing,.....")
   }
 
+  const callBack = () => {
+    clearTimeout(windowRef.current)
+    windowRef.current = setTimeout(() => {
+      checkSize()
+    }, 400)
+  }
+
+  console.log(windowRef.current)
   useEffect(() => {
     checkSize()
   }, [])
 
-  // useEffect(() => {
-  //   console.log(windowRef.current)
-  //   if (windowRef.current) {
-  //     clearTimeout(windowRef.current)
-  //   }
+  useEffect(() => {
+    window.addEventListener("resize", callBack)
 
-  //   windowRef.current = setTimeout(() => {
-  //     window.addEventListener("resize", checkSize)
-  //   }, 2000)
-
-  //   return () => {
-  //     window.removeEventListener("resize", checkSize)
-  //   }
-  // })
-
+    return () => {
+      window.removeEventListener("resize", callBack)
+    }
+  })
+  setTimeout(console.log(`current Timout is ${windowRef.current}`), 600)
   return (
     <div className={classes.relatedWrap}>
       <p className={classes.title}>Das könnte dir gefallen</p>

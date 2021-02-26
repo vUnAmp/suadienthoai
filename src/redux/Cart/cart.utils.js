@@ -1,13 +1,11 @@
 export const existingCartItem = ({ prevCartItems, nextCartItem }) => {
-  // console.log(prevCartItems)
-  // console.log(nextCartItem)
   return prevCartItems.find(cartItem => cartItem.id === nextCartItem.id)
 }
 
 export const handleAddToCart = ({ prevCartItems, nextCartItem }) => {
   const quantityIncrement = 1
   const cartItemExists = existingCartItem({ prevCartItems, nextCartItem })
-  // console.log(prevCartItems)
+
   if (cartItemExists) {
     return prevCartItems.map(cartItem =>
       cartItem.id === nextCartItem.id

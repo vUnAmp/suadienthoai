@@ -34,7 +34,7 @@ export function* getSnapshotUserAuth(user, displayName) {
 export function* checkUserSession() {
   try {
     const user = yield checkUserAuth()
-    console.log(user)
+
     if (!user) return
     yield getSnapshotUserAuth(user)
   } catch (error) {

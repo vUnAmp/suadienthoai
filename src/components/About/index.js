@@ -7,7 +7,7 @@ import useGatsbyStripeData from "../hooks/useGatsbyStripeData"
 const AboutUs = ({ location }) => {
   const img = useStaticQuery(bgImg)
   const data = useGatsbyStripeData()
-  console.log(location)
+
   return (
     <Grid container className="wrap-page about-page">
       <Grid item xs={6} className="about-page__wrap">

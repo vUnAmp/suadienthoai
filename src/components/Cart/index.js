@@ -72,7 +72,7 @@ const Cart = () => {
   const handleRemove = product => {
     dispatch(removeCartItem(product))
   }
-  console.log(currentUser?.email)
+
   return (
     <div className="wrap-page cart-page">
       <Container maxWidth="lg">
@@ -148,6 +148,11 @@ const Cart = () => {
               >
                 Zu Kasse
               </button>
+              <span className="cart-notice">
+                <strong>Demo Version</strong>
+                Default U.S. card : 4242 4242 4242 4242 <br />
+                CVC 3 random digits !
+              </span>
             </Grid>
           </Grid>
         ) : (

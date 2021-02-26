@@ -84,7 +84,6 @@ const Header = () => {
 
   useEffect(() => {
     currentUser ? setOpen(false) : dispatch(checkUserSession())
-    console.log("header rerendewrinsfa")
   }, [dispatch])
 
   return (
