@@ -80,10 +80,7 @@ const RelateProduct = ({ data }) => {
     slidesToScroll: 1,
     arrows: true,
   }
-  // Need resize  eventlistener TODO !!!!
-  // window.addEventListener("resize", () => {
-  //   console.log("hello")
-  // })
+
   const checkSize = () => {
     countItems = window.innerWidth > 600 ? 6 : 3
     for (let i = 0; i < n; i += countItems) {
@@ -91,7 +88,6 @@ const RelateProduct = ({ data }) => {
     }
     setRenderData(newData)
     setCount(countItems)
-    console.log("resizing,.....")
   }
 
   const callBack = () => {
@@ -101,7 +97,6 @@ const RelateProduct = ({ data }) => {
     }, 400)
   }
 
-  console.log(windowRef.current)
   useEffect(() => {
     checkSize()
   }, [])
@@ -113,7 +108,7 @@ const RelateProduct = ({ data }) => {
       window.removeEventListener("resize", callBack)
     }
   })
-  setTimeout(console.log(`current Timout is ${windowRef.current}`), 600)
+
   return (
     <div className={classes.relatedWrap}>
       <p className={classes.title}>Das könnte dir gefallen</p>
