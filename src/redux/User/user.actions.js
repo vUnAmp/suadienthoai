@@ -1,8 +1,11 @@
 import userTypes from "./user.types"
 
-export const checkUserSession = () => ({
-  type: userTypes.CHECK_USER_SESSION,
-})
+export const checkUserSession = () => {
+  console.log("checking ...")
+  return {
+    type: userTypes.CHECK_USER_SESSION,
+  }
+}
 
 export const signInEmail = data => ({
   type: userTypes.SIGN_IN_EMAIL,

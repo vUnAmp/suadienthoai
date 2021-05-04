@@ -7,10 +7,10 @@ const Shop = ({ data, location }) => {
   const siteTitle = `Unser Online Shop`
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <>
       <SEO title="Shopping Online" />
       <ListProducts />
-    </Layout>
+    </>
   )
 }
 

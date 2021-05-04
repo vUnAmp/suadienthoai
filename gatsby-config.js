@@ -82,6 +82,7 @@ module.exports = {
         icon: `content/assets/suachuaonline24.jpg`,
       },
     },
+    `gatsby-plugin-image`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-stripe`,

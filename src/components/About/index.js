@@ -1,18 +1,21 @@
 import { Grid, Container } from "@material-ui/core"
 import React from "react"
 import Img from "gatsby-image"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { useStaticQuery, graphql } from "gatsby"
 import RelateProduct from "../Products/RelateProduct"
 import useGatsbyStripeData from "../hooks/useGatsbyStripeData"
-const AboutUs = ({ location }) => {
-  const img = useStaticQuery(bgImg)
-  const data = useGatsbyStripeData()
 
+function AboutUs({ location }) {
+  const data = useStaticQuery(pageQuery)
+  const image = getImage(data.file)
+  const stripeData = useGatsbyStripeData()
   return (
     <Grid container className="wrap-page about-page">
       <Grid item xs={6} className="about-page__wrap">
         <div className="about-image">
-          <Img fluid={img.file.childImageSharp.fluid} />
+          {/* <Img fluid={img.file.childImageSharp.fluid} /> */}
+          <GatsbyImage image={image} alt="We care your phone" />
         </div>
       </Grid>
       <Grid item xs={6} className="about-page__wrap">
@@ -42,7 +45,7 @@ const AboutUs = ({ location }) => {
         </Grid>
         {location.pathname === "/about/" && (
           <div className="product-related">
-            <RelateProduct data={data} />
+            <RelateProduct data={stripeData} />
           </div>
         )}
       </Container>
@@ -50,16 +53,17 @@ const AboutUs = ({ location }) => {
   )
 }
 
-export default AboutUs
-
-const bgImg = graphql`
+export const pageQuery = graphql`
   query MyQuery {
     file(absolutePath: { regex: "/bg-sdt.jpg/" }) {
       childImageSharp {
-        fluid(maxWidth: 350, maxHeight: 300, quality: 100) {
-          ...GatsbyImageSharpFluid_withWebp_tracedSVG
-        }
+        gatsbyImageData(
+          width: 600
+          placeholder: BLURRED
+          formats: [AUTO, WEBP, AVIF]
+        )
       }
     }
   }
 `
+export default AboutUs

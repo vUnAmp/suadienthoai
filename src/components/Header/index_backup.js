@@ -82,10 +82,6 @@ const Header = () => {
     }
   }, [toggleAccount])
 
-  useEffect(() => {
-    currentUser ? setOpen(false) : dispatch(checkUserSession())
-  }, [dispatch])
-
   return (
     <header className="boxFull">
       <div className="box boxFlex">
@@ -164,16 +160,17 @@ const Header = () => {
                 </p>
                 <p className="user-email">{currentUser.email} </p>
                 <hr />
-                <p className="user-account__details">
+                <p onClick={handleClose} className="user-account__details">
                   {" "}
                   <RateReviewOutlinedIcon />
                   <Link to="/account">Mein Konto</Link>
                 </p>
-                <p className="user-account__cart">
+                <p onClick={handleClose} className="user-account__cart">
                   <ShoppingCartOutlinedIcon />
                   <Link to="/cart">Warenkorb</Link>
                 </p>
                 <p
+                  onClick={handleClose}
                   role="button"
                   className="user-signout"
                   onClick={handleSignOut}

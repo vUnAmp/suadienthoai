@@ -10,13 +10,13 @@ const Termin = ({ location }) => {
   const siteTitle = "ÜBER UNS"
   const data = useGatsbyStripeData()
   return (
-    <Layout location={location} title={siteTitle}>
+    <>
       <SEO title="Schnelle Reparatur" />
       <Intro location={location} />
       <div className="product-related wrap-page">
         <RelateProduct data={data} />
       </div>
-    </Layout>
+    </>
   )
 }
 

@@ -1,12 +1,15 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { Link } from "gatsby"
 import "../layout.scss"
 import Header from "../Header/index_backup"
 
 import Footer from "../Footer"
 import Loading from "../Loading"
+import { checkUserSession } from "../../redux/User/user.actions"
+import { useDispatch } from "react-redux"
 
 const Layout = ({ location, title, children }) => {
+  const dispatch = useDispatch()
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
   let header
@@ -25,11 +28,14 @@ const Layout = ({ location, title, children }) => {
     )
   }
 
+  useEffect(() => {
+    dispatch(checkUserSession())
+  }, [])
+
   return (
     <div className="wrap-site" data-is-root-path={isRootPath}>
       <Loading />
       <Header />
-      {/* <header className="global-header">{header}</header> */}
       <main>{children}</main>
       <Footer />
     </div>

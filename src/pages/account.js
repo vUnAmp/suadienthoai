@@ -13,12 +13,12 @@ const Account = ({ data, location }) => {
     if (location.action !== "PUSH") navigate("/")
   }, [])
   return (
-    <Layout location={location} title={siteTitle}>
+    <>
       <SEO title="Account Details" />
       <div className="wrap-page">
         <OderHistory />
       </div>
-    </Layout>
+    </>
   )
 }
 

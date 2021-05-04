@@ -10,11 +10,11 @@ const CartPage = ({ location }) => {
     if (location.action !== "PUSH") navigate("/")
   }, [])
   return (
-    <Layout location={location} title={siteTitle}>
+    <>
       <Cart />
 
       <Contact />
-    </Layout>
+    </>
   )
 }
 

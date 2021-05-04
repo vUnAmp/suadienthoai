@@ -12,13 +12,15 @@ const BlogIndex = ({ data, location }) => {
   const siteTitle = data?.site?.siteMetadata?.title || `Title`
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <>
+      {/* <Layout location={location} title={siteTitle}> */}
       <SEO title="Repairphone24.de" />
       <Intro />
       <Services />
       <Wedo />
       <Contact />
-    </Layout>
+      {/* </Layout> */}
+    </>
   )
 }
 

@@ -24,10 +24,10 @@ const Success = ({ location }) => {
     }
   }, [tempSessionId, sessionId])
   return (
-    <Layout location={location} title={siteTitle}>
+    <>
       {checkSession && <ReviewOder location={location} />}
       <Contact />
-    </Layout>
+    </>
   )
 }
 

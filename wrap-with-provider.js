@@ -9,17 +9,23 @@ import {
 } from "./src/redux/createStore"
 import { PersistGate } from "redux-persist/integration/react"
 
+import { checkUserAuth } from "./src/redux/User/user.helpers"
+
+import Layout from "./src/components/Layout/layout"
+
 // eslint-disable-next-line react/display-name,react/prop-types
-export default ({ element }) => {
-  // Instantiating store in `wrapRootElement` handler ensures:
+const WrapSite = ({ element, localtion }) => {
   //  - there is fresh store for each SSR page
   //  - it will be called only once in browser, when React mounts
 
   return (
     <Provider store={store}>
-      {element}
-      {/* <PersistGate persistor={persistor}>
+      <Layout location={location}>
+        {element}
+        {/* <PersistGate persistor={persistor}>
         </PersistGate> */}
+      </Layout>
     </Provider>
   )
 }
+export default WrapSite

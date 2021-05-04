@@ -12,13 +12,13 @@ const About = ({ location }) => {
   const data = useGatsbyStripeData()
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <>
       <SEO title="Schnelle Reparatur" />
       <Services />
       <div className="product-related wrap-page">
         <RelateProduct data={data} />
       </div>
-    </Layout>
+    </>
   )
 }
 
