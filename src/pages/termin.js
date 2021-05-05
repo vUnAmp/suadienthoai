@@ -7,11 +7,10 @@ import RelateProduct from "../components/Products/RelateProduct"
 import useGatsbyStripeData from "../components/hooks/useGatsbyStripeData"
 
 const Termin = ({ location }) => {
-  const siteTitle = "ÜBER UNS"
   const data = useGatsbyStripeData()
   return (
     <>
-      <SEO title="Schnelle Reparatur" />
+      <SEO title="Termin Buchen" />
       <Intro location={location} />
       <div className="product-related wrap-page">
         <RelateProduct data={data} />

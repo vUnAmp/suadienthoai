@@ -14,13 +14,13 @@ import { checkUserAuth } from "./src/redux/User/user.helpers"
 import Layout from "./src/components/Layout/layout"
 
 // eslint-disable-next-line react/display-name,react/prop-types
-const WrapSite = ({ element, localtion }) => {
+const WrapSite = ({ element }) => {
   //  - there is fresh store for each SSR page
   //  - it will be called only once in browser, when React mounts
 
   return (
     <Provider store={store}>
-      <Layout location={location}>
+      <Layout>
         {element}
         {/* <PersistGate persistor={persistor}>
         </PersistGate> */}

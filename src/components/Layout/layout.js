@@ -8,32 +8,15 @@ import Loading from "../Loading"
 import { checkUserSession } from "../../redux/User/user.actions"
 import { useDispatch } from "react-redux"
 
-const Layout = ({ location, title, children }) => {
+const Layout = ({ title, children }) => {
   const dispatch = useDispatch()
-  const rootPath = `${__PATH_PREFIX__}/`
-  const isRootPath = location.pathname === rootPath
-  let header
-
-  if (isRootPath) {
-    header = (
-      <h1 className="main-heading">
-        <Link to="/">{title}</Link>
-      </h1>
-    )
-  } else {
-    header = (
-      <Link className="header-link-home" to="/">
-        {title}
-      </Link>
-    )
-  }
 
   useEffect(() => {
     dispatch(checkUserSession())
   }, [])
 
   return (
-    <div className="wrap-site" data-is-root-path={isRootPath}>
+    <div className="wrap-site">
       <Loading />
       <Header />
       <main>{children}</main>
