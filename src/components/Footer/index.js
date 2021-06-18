@@ -13,11 +13,13 @@ const Footer = () => {
       <div className="box footer-wrap">
         <div className="col-12 col-md-6">
           <span>
-            Copyright ©{new Date().getFullYear()}
+            Copyrights All Reserved 2018
+            {/* Copyright ©{new Date().getFullYear()} */}
             <br />
-            PhoneABC GmbH
+            Repairphone24
             <br />
-            Herzbergstr. 33-34 10365 Berlin
+            Herzbergstraße 128-139 <br />
+            Halle 6 R606 10365 Berlin
           </span>
         </div>
         <div className="col-12 col-md-6">
